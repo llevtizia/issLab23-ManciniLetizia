@@ -9,7 +9,7 @@ plugins {
 repositories {
     jcenter()
     //flatDir { dirs '../unibolibs' }
-    flatDir { dirs 'C:\\Didattica2023\\issLab2023\\unibolibs' }
+    // flatDir { dirs 'C:\\Didattica2023\\issLab2023\\unibolibs' }
 }
 
 version '1.0'
@@ -49,7 +49,7 @@ dependencies {
     //implementation name: 'unibonoawtsupports'
     //implementation name: 'unibo.qakactor22-3.4'
     //implementation name: 'unibo.comm23-1.0-plain'
-    implementation name: 'unibo.basicomm23-1.0'
+    //implementation name: 'unibo.basicomm23-1.0'
 	//implementation name: 'unibo.actor22-1.1'
 
    
