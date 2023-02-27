@@ -31,6 +31,8 @@ public class TestMovesUsingHttp {
 	 private  String forwardcmd   = "{\"robotmove\":\"moveForward\"  , \"time\": \"1500\"}";  //long ...
 	 private  String backwardcmd  = "{\"robotmove\":\"moveBackward\" , \"time\": \"2300\"}";
 	 private  String haltcmd      = "{\"robotmove\":\"alarm\" ,        \"time\": \"10\"}";
+
+
 	
 	public TestMovesUsingHttp() {
 		httpclient = HttpClients.createDefault();
@@ -79,12 +81,16 @@ public class TestMovesUsingHttp {
 		    result = callHTTP(  backwardcmd );
 			System.out.println("moveBackward endmove=" + result);
 	}
+
+
+
 	public void doForward() {
 		String forwardcmd   = "{\"robotmove\":\"moveForward\"  , \"time\": \"1000\"}";
 		//CommUtils.waitTheUser("PUT ROBOT in HOME  and hit");
 		JSONObject result = callHTTP(  forwardcmd  );
 		System.out.println("moveForward endmove=" + result);
 	}
+
 	public void doCollision() {
 		String forwardcmd   = "{\"robotmove\":\"moveForward\"  , \"time\": \"3000\"}";
 		//CommUtils.waitTheUser("PUT ROBOT near a wall and hit");
@@ -98,6 +104,23 @@ public class TestMovesUsingHttp {
 		JSONObject result = callHTTP(  forwardcmd  );
 		System.out.println("moveForward endmove=" + result);
 	}
+
+	// doTurnLeft
+	public void doTurnLeft() {
+		String turnleftcmd   = "{\"robotmove\":\"turnLeft\"     , \"time\": \"300\"}";
+		//CommUtils.waitTheUser("PUT ROBOT near a wall and hit");
+		JSONObject result = callHTTP(  turnleftcmd  );
+		System.out.println("turnLeft endmove=" + result);
+	}
+	//
+	public void doBoundary(){
+		int i;
+		for (i = 0; i < 4; i++) {
+			doCollision();
+			doTurnLeft();
+		}
+	}
+
 	protected void sendAlarmAfter( int time ){
 		new Thread(){
 		  	protected  JSONObject mycallHTTP(String crilCmd )  {
@@ -139,9 +162,12 @@ MAIN
 	public static void main(String[] args)   {
 		// CommUtils.aboutThreads("Before start - ");
 		TestMovesUsingHttp appl = new TestMovesUsingHttp();
-		appl.doForward();
-		appl.doCollision();
-		appl.doHalt();
+
+		// added by me
+		appl.doBoundary();
+
+		System.out.println("boundary done");
+		//appl.doHalt();
 		// CommUtils.aboutThreads("At end - ");
 	}
 	
