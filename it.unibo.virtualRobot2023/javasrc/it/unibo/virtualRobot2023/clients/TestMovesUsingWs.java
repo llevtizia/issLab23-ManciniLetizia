@@ -6,15 +6,14 @@
  ===============================================================
  */
 
-
 package it.unibo.virtualRobot2023.clients;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
-// import unibo.basicomm23.utils.CommUtils;
 import javax.websocket.*;
 import java.io.IOException;
 import java.net.URI;
 import java.net.URISyntaxException;
+import unibo.basicomm23.utils.CommUtils;
 
 //See https://www.baeldung.com/java-websockets
 
@@ -34,13 +33,13 @@ public class TestMovesUsingWs {
 	 long startTime ;
 	 
     public TestMovesUsingWs(String addr) {
-            System.out.println("TestMovesUsingWs |  CREATING ..." + addr);
+            CommUtils.outblue("TestMovesUsingWs |  CREATING ..." + addr);
             init(addr);
     }
 
     protected void init(String addr){
         try {
-            //System.out.println("TestMovesUsingWs |  container=" + ContainerProvider.class.getName());
+            //CommUtils.outblue("TestMovesUsingWs |  container=" + ContainerProvider.class.getName());
             WebSocketContainer container = ContainerProvider.getWebSocketContainer();
             container.connectToServer(this, new URI("ws://"+addr));
         } catch (URISyntaxException ex) {
@@ -54,28 +53,27 @@ public class TestMovesUsingWs {
 
     @OnOpen
     public void onOpen(Session userSession) {
-    	System.out.println("TestMovesUsingWs | opening websocket");
+    	CommUtils.outblue("TestMovesUsingWs | opening websocket");
         this.userSession = userSession;
     }
 
     @OnClose
     public void onClose(Session userSession, CloseReason reason) {
-    	System.out.println("TestMovesUsingWs | closing websocket");
+    	CommUtils.outblue("TestMovesUsingWs | closing websocket");
         this.userSession = null;
     }
 
     /*
      * 
      */
-
     @OnMessage
     public void onMessage(String message)  {
         long duration = System.currentTimeMillis() - startTime;
         try {
             //{"collision":"true ","move":"..."} or {"sonarName":"sonar2","distance":19,"axis":"x"}
-        	// CommUtils.outmagenta("TestMovesUsingWs | onMessage:" + message + " duration="+duration);
+        	CommUtils.outmagenta("TestMovesUsingWs | onMessage:" + message + " duration="+duration);
             JSONObject jsonObj = (JSONObject) simpleparser.parse(message);
-            //System.out.println("TestMovesUsingWs | jsonObj:" + jsonObj);
+            //CommUtils.outblue("TestMovesUsingWs | jsonObj:" + jsonObj);
             if (jsonObj.get("endmove") != null ) {
                 boolean endmove = jsonObj.get("endmove").toString().equals("true");
                 String  move    = (String) jsonObj.get("move") ;
@@ -95,12 +93,12 @@ public class TestMovesUsingWs {
                 String distance  = jsonObj.get("distance").toString();
             }
         } catch (Exception e) {
-        	System.out.println("onMessage " + message + " " +e.getMessage());
+        	CommUtils.outred("onMessage " + message + " " +e.getMessage());
         }
     }
 
     protected void callWS(String msg )   {
-        System.out.println("TestMovesUsingWs | callWS " + msg);
+        CommUtils.outyellow("TestMovesUsingWs | callWS " + msg);
         if( ! msg.contains("alarm")) startTime = System.currentTimeMillis() ;
         this.userSession.getAsyncRemote().sendText(msg);
 //        try {
@@ -109,75 +107,74 @@ public class TestMovesUsingWs {
 //        }catch(Exception e) {}       
     }
     protected void halt(){
-        callWS( haltcmd );
-        // CommUtils.delay(30);
+        callWS( haltcmd );CommUtils.delay(30);
     }
 /*
 BUSINESS LOGIC
 */
     public void doForward() {
 		String forwardcmd   = "{\"robotmove\":\"moveForward\",\"time\": \"1000\"}";
-		// CommUtils.waitTheUser("doForward (WS): PUT ROBOT in HOME  and hit (forward 1000)");
+		CommUtils.waitTheUser("doForward (WS): PUT ROBOT in HOME  and hit 1-CR (forward 1000)");
 		startTime = System.currentTimeMillis();
 		callWS(  forwardcmd  );
-		// CommUtils.waitTheUser("Hit to terminate doForward");
+		CommUtils.waitTheUser("Hit to terminate doForward");
 		//Per vedere il msg di stato collision e endmove
 	}
     
     public void  doCollision() {
-    	// CommUtils.waitTheUser("doCollision (WS): PUT ROBOT near a wall and hit (forward 3000)");
+    	CommUtils.waitTheUser("doCollision (WS): PUT ROBOT near a wall and hit 1-CR (forward 3000)");
         //halt(); //To remove pending notallowed
         String forwardcmd   = "{\"robotmove\":\"moveForward\"  , \"time\": \"3000\"}";
         startTime = System.currentTimeMillis();
         callWS(  forwardcmd  );
-        // CommUtils.waitTheUser("Hit to terminate doCollision");
+        CommUtils.waitTheUser("Hit to terminate doCollision");
         //Per vedere il msg di stato collision e endmove
     }
 
     public void doNotAllowed() {
-        // CommUtils.waitTheUser("doNotAllowed (WS): PUT ROBOT in HOME and hit (forward 1200 and turnLeft after 400)");
+        CommUtils.waitTheUser("doNotAllowed (WS): PUT ROBOT in HOME and hit 1-CR (forward 1200 and turnLeft after 400)");
         String forwardcmd   = "{\"robotmove\":\"moveForward\", \"time\":\"1200\"}";
         startTime = System.currentTimeMillis();
         callWS(  forwardcmd  );
-        System.out.println("doNotAllowed (WS): moveForward msg sent"  );
-        // CommUtils.delay(400);
-        System.out.println("doNotAllowed (WS): Now call turnLeft"  );
+        CommUtils.outblue("doNotAllowed (WS): moveForward msg sent"  );
+        CommUtils.delay(400);
+        CommUtils.outblue("doNotAllowed (WS): Now call turnLeft"  );
         callWS(  turnleftcmd  );
-        // CommUtils.waitTheUser("doHalt (WS): Hit to terminate doNotAllowed");
+        CommUtils.waitTheUser("doHalt (WS): Hit to terminate doNotAllowed");
     }
 
     public void doHalt() {
-        // CommUtils.waitTheUser("doHalt (WS): PUT ROBOT in HOME and hit (forward 3000 and alarm after 1000)");
+        CommUtils.waitTheUser("doHalt (WS): PUT ROBOT in HOME and hit 1-CR (forward 3000 and alarm after 1000)");
         String forwardcmd   = "{\"robotmove\":\"moveForward\", \"time\":\"3000\"}";
         callWS(  forwardcmd  );
-        System.out.println("doHalt (WS): moveForward msg sent"  );
-        // CommUtils.delay(1000);
+        CommUtils.outblue("doHalt (WS): moveForward msg sent"  );
+        CommUtils.delay(1000);
         callWS(  haltcmd  );
-        // CommUtils.waitTheUser("doHalt (WS): Hit to terminate doHalt");
+        CommUtils.waitTheUser("doHalt (WS): Hit to terminate doHalt");
     }
 
     public void doBasicMoves() {
         callWS(  haltcmd ) ; //halt asynch non manda enmove
-        // CommUtils.delay(20);
-        // CommUtils.waitTheUser("hit to turn");
+        CommUtils.delay(20);
+     CommUtils.waitTheUser("hit 1-CR to turn");
  	
 		callWS(  turnleftcmd ) ;
-		System.out.println("turnLeft msg sent"  );		
-		// CommUtils.delay(500);
+		CommUtils.outblue("turnLeft msg sent"  );		
+		CommUtils.delay(500);
 		
 		callWS(  turnrightcmd ) ;
-		System.out.println("turnRight msg sent"  );
-		// CommUtils.delay(500);
+		CommUtils.outblue("turnRight msg sent"  );
+		CommUtils.delay(500);
 
-	// CommUtils.waitTheUser("hit to forward");
+	CommUtils.waitTheUser("hit 1-CR to forward");
 //		//Now the value of endmove depends on the position of the robot
 		callWS(  forwardcmd  );
-		System.out.println("moveForward msg sent"  );
-		// CommUtils.delay(1300);
-   // CommUtils.waitTheUser("hit to backwardcmd");
+		CommUtils.outblue("moveForward msg sent"  );
+		CommUtils.delay(1300);
+    CommUtils.waitTheUser("hit 1-CR to backwardcmd");
 		callWS(  backwardcmd );
-		System.out.println("moveBackward msg sent"  );
-		//CommUtils.delay(1300);
+		CommUtils.outblue("moveBackward msg sent"  );
+		CommUtils.delay(1300);
 		 //Give time to receive msgs from WEnv
 }
 
@@ -186,15 +183,15 @@ MAIN
  */
     public static void main(String[] args) {
         try{
-    		// CommUtils.aboutThreads("Before start - ");
+    		CommUtils.aboutThreads("Before start - ");
             TestMovesUsingWs appl = new TestMovesUsingWs("localhost:8091");
             appl.doForward();
-            appl.doCollision();
-            appl.doNotAllowed();
-            appl.doHalt();
-       		// CommUtils.aboutThreads("At end - ");
+            // appl.doCollision();
+            // appl.doNotAllowed(); // mando un comando quando ne ho già mandaro uno
+            // appl.doHalt();
+       		CommUtils.aboutThreads("At end - ");
         } catch( Exception ex ) {
-            System.out.println("TestMovesUsingWs | main ERROR: " + ex.getMessage());
+            CommUtils.outred("TestMovesUsingWs | main ERROR: " + ex.getMessage());
         }
     }
 }

@@ -6,17 +6,19 @@ plugins {
     id 'application'
 	//id 'jacoco'
 }
+
 repositories {
-    jcenter()
-    //flatDir { dirs '../unibolibs' }
-    // flatDir { dirs 'C:\\Didattica2023\\issLab2023\\unibolibs' }
+    //jcenter()
+    mavenCentral()
+    flatDir { dirs '../unibolibs' }
+
 }
 
 version '1.0'
 sourceCompatibility = 1.8
 
 dependencies {
-    testImplementation group: 'junit', name: 'junit', version: '4.12'
+    //testImplementation group: 'junit', name: 'junit', version: '4.12'
 
 //OkHttp library for websockets with Kotlin
 	//implementation group: 'com.squareup.okhttp3', name: 'okhttp', version: '3.14.0'    
@@ -46,20 +48,15 @@ dependencies {
 //CUSTOM unibo
     //implementation name: '2p301'
     //implementation name: 'uniboInterfaces'
-    //implementation name: 'unibonoawtsupports'
-    //implementation name: 'unibo.qakactor22-3.4'
-    //implementation name: 'unibo.comm23-1.0-plain'
-    //implementation name: 'unibo.basicomm23-1.0'
-	//implementation name: 'unibo.actor22-1.1'
+    implementation name: 'unibo.basicomm23-1.0'
 
-   
 }
 
 sourceSets {
 
     main.java.srcDirs += 'javasrc'
     //main.java.srcDirs += 'resources'
-    //test.java.srcDirs += 'test'
+    test.java.srcDirs += 'test'
 }
 
 //Avoid duplication of src in Eclipse
@@ -69,21 +66,14 @@ eclipse {
     }
 }
 
-mainClassName = 'it.unibo.virtualRobot2023.clients.EsperimentiHTTP'
-/*
-jar {
-    from sourceSets.main.allSource
-    manifest { attributes 'Main-Class': "$mainClassName" }
-}
+mainClassName = 'it.unibo.virtualRobot2023.clients.TestMovesUsingHTTP'
 
- 
-distributions {
-    main {
-        contents {
-            from './RadarSystemConfig.json'
-        }
-    }
-}
-*/
 //git rm --cached .project
 //git rm --cached .classpath
+/*
+SE NON FUNZIONA LA COMPILAZIONE, provare a
+Controllare SDK del progetto (deve essere 11)
+MARK directory javasrc as Source root
+delete .idea directory and .iml files, then reimport the project as Gradle
+try File | Invalidate Caches | Invalidate and Restart.
+ */
