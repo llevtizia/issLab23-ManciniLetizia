@@ -189,7 +189,7 @@ div.imagedesc{
     
 <head>
    
-<title>Mancini-Letizia-Template</title></head>
+<title>BoundaryWalkReq1ManciniLetizia</title></head>
     
 <body>
 <div id="top">
@@ -197,64 +197,97 @@ div.imagedesc{
 </div>  
 
 <div class="body"> 
-<h2>Introduction</h2>
- 
- 
-<h2>Requirements</h2>
+    <h2>Introduction</h2>
+    
+    
+    <h2>Requirements</h2>
+    <div class="remark">
+        Req1 : il <i>VirtualRobot</i> deve percorrere (una volta) il bordo perimetrale della stanza rappresentata nella <i>scena di WEnv</i>
+    </div>
 
- 
-<div class="remark">
-Copy here the EXACT text given by the customer.
-</div>
+    
 
- 
+    <h2>Requirement analysis</h2>
+    <div class="remark">
+        <ul>
+            <li>Per <i>VirtualRobot</i>, il committente intende: 
+                <a href="D:/Documenti/issLab23/iss23Material/html/VirtualRobot23.html">VIRTUAL ROBOT</a></li>
+                
+            <li>Per <i>scena di WEnv</i>, il committente intende: 
+                <a href="D:/Documenti/issLab23/iss23Material/html/VirtualRobot23.html#la-scena-di-wenv">SCENA WENV</a></li>
+            <br>
+            <li>Osservando la documentazione del VirtualRobot, si deduce che può essere modellato come un <b>servizio</b></li>
+            <li>Il sistema è <b>distribuito</b> su diversi nodi computazionali: le due attività sono il server e l'applicazione</li>
+            <li>L'interazione tra le diverse entità avviene tramite <b>HTTP</b></li>
+        </ul>
 
-<h2>Requirement analysis</h2>
- 
+        Dall'analisi dei requisiti, si può definire una prima architettura logica del sistema da realizzare:
+        <br><br><img src="D:\Documenti\issLab23-ManciniLetizia\Deliverables\images\Appl1Arch0.png">
+    </div>
 
-</div>
+    <h2>Problem analysis</h2>
+    <div class="remark">
+        Il problema è risolvibile. Le problematiche principali sono
+        <br><br>
+        <ul>
+            <li>quali comandi HTTP devo mandare al robot per percorrere il perimetro della stanza</li>
+            <li>come verificare l'esito dei comandi inviati</li>
+        </ul>
 
-<h2>Problem analysis</h2>
- 
+        Nell'analisi temporale, ci può essere differenza tra il tempo necessario per la progettazione e il tempo necessario 
+        per verificare in maniera automatizzata l'esito dell'applicazione.
 
-<h2>Test plans</h2> 
+        <br>Possibili sprint
+        <ul>
+            <li>SPRINT A: primo prototipo funzionante del sistema</li>
+            <li>SPRINT B: testing automatizzato</li>
+        </ul>
+    </div>
 
-
-<h2>Project</h2> 
- 
-</div>
-
-<h2>Testing</h2> 
- 
-
-<h2>Deployment</h2> 
-
- 
-<h2>Maintenance</h2> 
- 
-<!-- USEFUL
-<table style="width:100%" border="1">
-<tr>
-<td style="width:50%">
-</td>
-<td></td>
-</tr>
-</table>
--->
-	      	
-<br/><br/> 	
-</div>  
-
-<div style="background-color:rgba(86, 56, 253, 0.9); width:60%;text-align:left;color:white">
-<ul>
-    <li>By Letizia Mancini</li>
-    <li>email: letizia.mancini3@studio.unibo.it </li>
-    <li>GIT repo: https://github.com/llevtizia/issLab23-ManciniLetizia</li>
-</ul>
+    <h2>Test plans</h2> 
 
 
-<img src="./img/picture.jpg" alt="picture" width="15%" height="15%" margin-left="2%">
+    <h2>Project</h2> 
+        <div class="remark">
+    
 
-</div> 
+        </div>
+    </div>
+
+    <h2>Testing</h2> 
+    <div class="remark">
+    
+    </div>
+
+    <h2>Deployment</h2> 
+
+    
+    <h2>Maintenance</h2> 
+    
+    <!-- USEFUL
+    <table style="width:100%" border="1">
+    <tr>
+    <td style="width:50%">
+    </td>
+    <td></td>
+    </tr>
+    </table>
+    -->
+                
+    <br/><br/> 	
+    </div>  
+
+    <div style="background-color:rgba(86, 56, 253, 0.9); width:60%;text-align:left;color:white">
+    <ul>
+        <li>By Letizia Mancini</li>
+        <li>email: letizia.mancini3@studio.unibo.it </li>
+        <li>GIT repo: https://github.com/llevtizia/issLab23-ManciniLetizia</li>
+        <li>matricola: 0000926656</li>
+    </ul>
+
+
+    <img src="../img/picture.jpg" alt="picture" width="15%" height="15%" margin-left="2%">
+
+    </div> 
 </body>
 </html>
