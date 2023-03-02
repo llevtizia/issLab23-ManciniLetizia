@@ -216,19 +216,37 @@ div.imagedesc{
 
 <h2>Problem analysis</h2>
     <div class="remark">
-    The client can interact with WEnv using both synchronous and asynchronous communication protocols.
+
+    The client can interact with WEnv using both <b>synchronous</b> and <b>asynchronous</b> communication protocols.
     <br><br>
-    <b>HTTP POST</b> (synch)
-    <ul>
-        <li>messages sent on port 8090</li>
-        <li>request/response protocol</li>
-    </ul>
-    <br><br>
-    <b>WEBSOCKET</b> (asynch)
-    <ul>
-        <li>messages sent on port 8091</li>
-        <li>bidirectional: the server sends a message with the outcome of the command</li>
-    </ul>
+    <table style="width:100%">
+        <tr>
+            <th>HTTP POST</th>
+            <th>WEBSOCKET</th>
+        </tr>
+        <tr>
+            <td>
+                <ul>
+                    <br>
+                    <li>application layer</li>
+                    <li>messages sent on port 8090</li>
+                    <li>request/response protocol</li>
+                    <li>easier for testing</li>
+                </ul>
+            </td>
+            <td>
+                <ul>
+                    <li>messages sent on port 8091</li>
+                    <li>bidirectional: the server sends a message with the outcome of the command</li>
+                    <li>use of annotations</li>
+                </ul>
+            </td>
+        </tr>
+    </table>
+    <br>
+    After discussion with the client, it was agreed to use <b>HTTP</b> as communication protocol.
+
+    
     </div>
 
 <h2>Test plans</h2> 
@@ -237,19 +255,31 @@ div.imagedesc{
 <h2>Project</h2> 
     <div class="remark">
     To cover the boundary of the room, the robot must
+    <br><br>    
     <ul>
-        <li>move forward until it collides with a wall</li>
-        <li>after a collision, the robot must turn left</li>
+        <li><b>move forward</b> along the wall</li>
+        <li>when reaching the end, the robot must <b>turn left</b></li>
     </ul>
-    for four times.
+    for <b>4 times</b>. The boundary is entirely covered when the robot has travelled along the four walls: 
+    <mark>wallUp, wallRight, wallDown, wallLeft</mark>.
+
+
     </div>
 </div>
 
 <h2>Testing</h2> 
 <div class="remark">
-    The status of the robot must be known in order to be able to test if the robot walks only the boundary of the room.
-    At the end, the robot must be in the HOME position and it must have collided with the four walls
-
+    <ul>
+    <li>A possible testing solution is to have the robot <b>colliding</b> with the opposite wall, followed by a <b>90 degree rotation</b> to the
+    <b>left</b>.
+    <br>In this way, the robot will walk the boundary counterclockwise since its home is located in the top-left corner.</li>
+    <br>
+    <li>If the <b>size of the room</b> and the <b>speed of the robot</b> are known, I can check how 
+    long it takes for the robot to <b>reach the opposite wall without colliding</b> with it. <br>
+    After walking a wall, the robot must rotate only once.</li>
+    
+    <li>At the end, <mark>the robot must be in the <b>HOME</b> position and it must have collided with the 4 walls</mark></li>
+    </ul>   
 </div>
 
 <h2>Deployment</h2> 
