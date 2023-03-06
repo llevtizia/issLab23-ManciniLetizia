@@ -4,17 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="78ad561c-5b52-4aae-beca-50a6b545b1f2" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application1/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/application1/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application1/main/java/Application1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/userDocs/application1.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/userDocs/img/picture.jpg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Deliverables/BoundaryWalkManciniLetizia.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Deliverables/BoundaryWalkManciniLetizia.html" afterDir="false" />
-    </list>
+    <list default="true" id="78ad561c-5b52-4aae-beca-50a6b545b1f2" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

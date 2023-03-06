@@ -5,7 +5,8 @@
 <body>
 <script src="https://cdn.jsdelivr.net/webjars/org.webjars/jquery/2.1.0/jquery.js"></script>
 <script language="javascript" type="text/javascript">
-const socket = new WebSocket('ws://localhost:8091/');
+ipaddr = document.getElementById('ipaddr').value;
+const socket = new WebSocket('ws://' + ipaddr + ':8091/');
   socket.onopen = function () { console.log("socket connected on 8091") };
 
   	socket.onmessage = function(evt) { 
@@ -62,7 +63,7 @@ $(function () {
                   time: timemove,
             };
             //alert(JSON.stringify(json))
-            fetch("http://localhost:8090/api/move", {
+            fetch("http://" + ipaddr + ":8090/api/move", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -79,9 +80,12 @@ $(function () {
 <table>
  <tr>
   <td><iframe src="http://localhost:8090" name="vrobot" height="300" width="300" title="Virtual robot"></iframe></td>
-  <td><h3>DISPLAY AREA <button onclick="clearDisplay()">CLEAR</button></h3>
+    <td>
+        <h3>connToIP: <input type="text" id="ipaddr"></h3>
+        <h3>DISPLAY AREA <button onclick="clearDisplay()">CLEAR</button></h3>
+        <div id = "display"></div>
 
-      <div id = "display"></div></td>
+    </td>
 
  </tr>
 
