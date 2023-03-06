@@ -5,8 +5,7 @@
 <body>
 <script src="https://cdn.jsdelivr.net/webjars/org.webjars/jquery/2.1.0/jquery.js"></script>
 <script language="javascript" type="text/javascript">
-ipaddr = document.getElementById('ipaddr').value;
-const socket = new WebSocket('ws://' + ipaddr + ':8091/');
+const socket = new WebSocket('ws://localhost:8091/');
   socket.onopen = function () { console.log("socket connected on 8091") };
 
   	socket.onmessage = function(evt) { 
@@ -43,13 +42,18 @@ $(function () {
 
 <script>
 
-         function clearDisplay(){
+        var ipaddr;
+
+        function getValue() {
+            ipaddr = document.getElementById("ipaddr").value;
+        }
+        function clearDisplay(){
             document.getElementById("display").innerHTML =""
-         }
-         function dohalt(){
-         	send('alarm',10);
-         }
-         function domove( ) {
+        }
+        function dohalt(){
+            send('alarm',10);
+        }
+        function domove( ) {
 	        var robotmove   = document.getElementById("move").value;
 	        var timemove    = document.getElementById("time").value;
 	        send(robotmove,timemove);
@@ -63,7 +67,7 @@ $(function () {
                   time: timemove,
             };
             //alert(JSON.stringify(json))
-            fetch("http://" + ipaddr + ":8090/api/move", {
+            fetch("http://localhost:8090/api/move", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json",
@@ -81,7 +85,7 @@ $(function () {
  <tr>
   <td><iframe src="http://localhost:8090" name="vrobot" height="300" width="300" title="Virtual robot"></iframe></td>
     <td>
-        <h3>connToIP: <input type="text" id="ipaddr"></h3>
+        <h3>connToIP: <input type="text" id="ipaddr" onkeydown="getValue()"></h3>
         <h3>DISPLAY AREA <button onclick="clearDisplay()">CLEAR</button></h3>
         <div id = "display"></div>
 
