@@ -201,27 +201,140 @@ div.imagedesc{
  
  
 <h2>Requirements</h2>
-
- 
 <div class="remark">
-Copy here the EXACT text given by the customer.
+    Scrivere un programma Java che possa inviare al VirtualRobot (attraverso una <b>console remota</b>):
+    <br><br>
+    <ul>
+        <li>un comando <b>start</b> per attivare il VirtualRobot in modo che percorra il bordo perimetrale 
+            della stanza rappresentata nella scena di WEnv</li>
+        <li>un comando <b>stop</b> per bloccare l’azione del VirtualRobot.</li>
+        <li>un comando di <b>resume</b> per riattivare l’azione del VirtualRobot.</li>
+    </ul>
 </div>
 
- 
+
 
 <h2>Requirement analysis</h2>
- 
+<div class="remark">
+    <ul>
+        <li>Per <i>VirtualRobot</i>, il committente intende:&emsp; 
+            <a href="../../html/VirtualRobot23.html"><i>virtual robot</i></a></li>
+            
+        <li>Per <i>scena di WEnv</i>, il committente intende: 
+            <a href="../../html/VirtualRobot23.html#la-scena-di-wenv"><i>scena WEnv</i></a></li>
+        <br>
+        Dopo colloqui con il committente, possiamo dire che:
+        <li>osservando la documentazione del VirtualRobot, si deduce che può essere modellato come un <b>servizio</b>;</li>
+        <li>il VirtualRobot23 (d’ora in poi denominato robot) si trova inizialmente nella situazione descritta come 
+            <a href="../../html/VirtualRobot23.html#stato-iniziale-del-virtualrobot">stato iniziale</a></li>
+        <li>l’applicazione può inviare comandi al robot sia con <b>interazione sincrona</b> sia con <b>interazione asincrona</b>;</li>
+        <li>un comando di <b>stop</b> inviato al robot che ha terminato il percorso non ha effetto;</li>
+        <li>un comando di <b>resume</b> inviato al robot che ha terminato il percorso equivale a un comando di start;</li>
+        <li>l’applicazione invia i comandi <b>stop/resume</b> sotto il controllo di un utente umano, attraverso 
+            la <i>console remota di comando</i>.</li>     
+    </ul>
+    <br>
+    Il sistema è <b>distribuito</b> su diversi nodi computazionali: con <i>console remota</i> si intende il fatto che la console di comando 
+    (che denominiamo CmdConsole) è collocata su un computer diverso da quello in cui gira l’applicazione.
+
 
 </div>
 
 <h2>Problem analysis</h2>
+<div class="remark">
+    <ul>
+        <li>L’applicazione non agisce in modo autonomo, ma come conseguenza di comandi inviati da <i>CmdConsole</i>.</li>
+        <li>Una volta ricevuto il comando <b>start</b>, l’applicazione presenta un comportamento al contempo <i>proattivo</i> (in quanto deve 
+            effettuare in modo autonomo un giro della stanza) e <i>reattivo</i> (in quanto deve essere capace di percepire ed 
+            eseguire i comandi <b>stop/resume</b>).
+        </li>
+    </ul>
+    
+    Dall'analisi dei requisiti e del problema, si può definire una prima architettura logica del sistema da realizzare:
+    <br><br><img src="img/Appl1Arch0.png" class="center">
+    <br><br>
+
+    Il sistema è logicamente formato da tre componenti:
+    <ul>
+        <li><i>VirtualRobot23</i>, che viene fornito dal committente.<br>
+            Il robot è un componente reattivo/proattivo: opera come un server e può ricevere comandi sia via rete tramita HTTP 
+            (<b>interazione sincrona</b>) sulla porta 8090 che tramite WebSocket sulla porta 8091 (<b>interazione asincrona</b>). 
+            Il server può anche inviare su WS messaggi che non siano risposte a comandi (<b>messaggio di stato</b>).
+        </li>
+        <li><i>Appl1</i>, che dobbiamo realizzare<br>
+            È un ente attivo che attende un comando (<b>start/stop/resume</b>) da CmdConsole. Questi comandi possono essere inviati 
+            come messaggi via rete tramite un protocolllo e sono poi interpretati e convertiti in comandi al robot.        
+        </li>
+        <li><i>CmdConsole</i>, che dobbiamo realizzare<br>
+            Componente che si presenta come un ente attivo che interagisce con un utente umano e che invia comandi via rete ad Appl1.
+        </li>
+    </ul>
+    <br>
+    Il core-business dell’applicazione è di competenza del componente <i>Appl1</i>, da progettare e realizzare per primo. 
+    La CmdConsole potrà essere progettata e realizzata in un secondo momento, prima in locale e poi nel distribuito.
+</div>
  
 
 <h2>Test plans</h2> 
+<div class="remark">
+    Dopo un ulteriore collquio con il committente, si ritiene significativo, al momento, sapere, al termine dell'esecuzione dell’applicazione:
+    <ul>
+        <li>  se il robot è fermo in <b>HOME</b> e ha effettuato un (solo) giro lungo il perimetro della stanza.</li>
+    </ul>
+
+    <br>
+    Si è anche convenuto che in futuro potrebbe essere utile sapere:
+    <ul>
+        <li>quanti comandi di stop/resume il robot ha ricevuto ed elaborato</li>
+        <li>quale posizione il robot occupa nella stanza in un certo istante</li>
+        <li> se il robot ha incontrato ostacoli mobili lungo il percorso</li>
+        <li>...</li>
+    </ul>
+
+    <br>
+    <ks>Azioni di testing pianificate</ks><br><br>
+    Concentrando al momento l’attenzione sul componente <i>Appl1</i>, possiamo pianificare le seguenti azioni di User Acceptance Test:
+    <ul>
+        <br>
+        <li><k>testStartNoStop</k>: dopo che <i>Appl1</i> ha ricevuto (da <i>CmdConsole</i>) il comando <b>start</b>, occorre verificare che il 
+            robot abbia iniziato la sua attività, cioè sia in moto e che, al termine, esso risulti fermo in HOME avendo completato un giro.
+        </li>
+        <li><k>testStop</k>: dopo che <i>Appl1</i> ha ricevuto (da <i>CmdConsole</i>) il comando <b>stop</b>, occorre verificare 
+            che il robot sia fermo.
+        </li>
+        <li><k>testResume</k>: dopo che <i>Appl1</i> ha ricevuto (da <i>CmdConsole</i>) il comando <b>resume</b>, occorre procedere come per 
+            <i>testStartNoStop</i>.</li>
+    </ul>
+</div>
 
 
 <h2>Project</h2> 
- 
+<div class="remark">
+    Lo sviluppo dell'applicazione viene impostato in modo incrementale:
+    <ol type="1">
+        <br>
+        <li><i>Applicazione1HTTP</i>: l'applicazione interagisce con il VirtualRobot23 solo via HTTP</li>
+        <li><i>Applicazione1HTTPeWS</i>: ammettiamo la possibilità di interagire con il VirtualRobot23 anche via WebSocket.</li>
+    </ol>
+    <br><br>
+    <ks>Applicazione1HTTP</ks><br><br>
+    La progettazione viene suddivisa nei seguenti SPRINT:
+    <ol type="1">
+        <br>
+        <li><b>SPRINT1</b>&emsp; 
+            <i>core problem</i> dell'applicazione: la fase <i>proattiva</i> in cui il robot percorre il perimetro della stanza <i>senza gestire i 
+            comandi stop/resume</i>.
+        </li>
+        <li><b>SPRINT2</b>&emsp; 
+            estendiamo il sistema prodotto nello <i>SPRINT1</i> per realizzare la fase <i>reattiva</i> in cui il robot <i>
+            gestisce i comandi stop/resume</i>.
+        </li>
+        <li><b>SPRINT3</b>&emsp; 
+            estendiamo il sistema prodotto nello <i>SPRINT2</i> introducendo la <i>Console remota</i>.
+        </li>
+
+    </ol>
+
 </div>
 
 <h2>Testing</h2> 
