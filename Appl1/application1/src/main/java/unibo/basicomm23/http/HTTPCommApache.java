@@ -23,10 +23,10 @@ public class HTTPCommApache {
         URL = "http://" +url;
     }
 
-    protected JSONObject requestSynch( String URL, String crilCmd )  {
+    public JSONObject requestSynch( String msg )  {
         JSONObject jsonEndmove = null;
         try {
-            StringEntity entity = new StringEntity(crilCmd);
+            StringEntity entity = new StringEntity(msg);
             HttpUriRequest httppost = RequestBuilder.post()
                     .setUri(new URI(URL))
                     .setHeader("Content-Type", "application/json")

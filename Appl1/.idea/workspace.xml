@@ -5,18 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d610c50-0dfc-4bbd-8e46-ad9883a20f5e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/common/CollisionException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/supports/VrobotHLMovesHTTPApache.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/Application1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/userDocs/BoundaryWalkReq1ManciniLetizia.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/userDocs/ManciniLetiziaApplication1.html" beforeDir="false" afterPath="$PROJECT_DIR$/userDocs/ManciniLetiziaApplication1.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userDocs/img/Appl1Arch0.png" beforeDir="false" afterPath="$PROJECT_DIR$/userDocs/img/Appl1Arch0.png" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Deliverables/BoundaryWalkManciniLetizia.pdf" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Deliverables/BoundaryWalkReq1ManciniLetizia.html" beforeDir="false" afterPath="$PROJECT_DIR$/../Deliverables/BoundaryWalkReq1ManciniLetizia.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ManciniLetiziaTemplate.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../it.unibo.virtualRobot2023/node/clients/NaiveGui.html" beforeDir="false" afterPath="$PROJECT_DIR$/../it.unibo.virtualRobot2023/node/clients/NaiveGui.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/http/HTTPCommApache.java" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/http/HTTPCommApache.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/common/IVrobotMoves.java" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/common/IVrobotMoves.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -32,6 +25,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Enum" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -51,7 +46,20 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
   </component>
-  <component name="RunManager" selected="Gradle.TestFlatApplication1HTTPNostop">
+  <component name="RunManager" selected="Application.Appl1HTTPSprint1">
+    <configuration name="Appl1HTTPSprint1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="unibo.basicomm23.http.Appl1HTTPSprint1" />
+      <module name="Appl1.application1.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="unibo.basicomm23.http.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="FlatApplication1HTTPNoStop" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="unibo.daevitare.unibo.http.FlatApplication1HTTPNoStop" />
       <module name="Appl1.application1.main" />
@@ -90,6 +98,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Appl1HTTPSprint1" />
         <item itemvalue="Gradle.TestFlatApplication1HTTPNostop" />
         <item itemvalue="Application.FlatApplication1HTTPNoStop" />
       </list>
@@ -105,5 +114,16 @@
       <updated>1678224107657</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>
