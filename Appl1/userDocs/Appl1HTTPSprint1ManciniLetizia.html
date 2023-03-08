@@ -78,7 +78,6 @@ ks{
 	font-family: "Arial";
 	font-weight: bold;
     color: #0000CD	;
-	font-size: 90%;
 }
 kc{
 	font-family: "Arial";
@@ -149,9 +148,14 @@ div.remark{
     margin: 10px;
 	border-radius: 25px;
 }
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
+table {
+  border: 1px black;
+  width: 100%;
+}
+
+th, td {
+  text-align: left;
+  padding: 0px;
 }
 
 ol, ul, li {
@@ -161,12 +165,8 @@ ol, ul, li {
   padding-bottom: 5px;
 }
 
-table, th, td {
-	border: 1px solid black;
-}
-
 img {
-	border: 1.5px solid #d5f2ed
+    border: 1.5px solid #d5f2ed
 
 }
 
@@ -185,11 +185,15 @@ div.imagedesc{
 	width: 85%;
 	margin: auto;
 }
+
+
+
+
 </style>
     
 <head>
    
-<title>ManciniLetiziaApplication1</title></head>
+<title>Appl1HTTPSprint1ManciniLetizia</title></head>
     
 <body>
 <div id="top">
@@ -208,39 +212,90 @@ div.imagedesc{
  
 <h2>Requirement analysis</h2>
 <div class="remark">
+    Per l'analisi completa dei requisiti, si veda:&emsp; <a href="ManciniLetiziaApplication1.html"><i>application1</i></a>
+    <br><br>
+    Per quanto riguarda lo sprint1:
     <ul>
-        <li>Per <i>VirtualRobot</i>, il committente intende: 
-            <a href="D:/Documenti/issLab23/iss23Material/html/VirtualRobot23.html">VIRTUAL ROBOT</a></li>
-            
-        <li>Per <i>scena di WEnv</i>, il committente intende: 
-            <a href="D:/Documenti/issLab23/iss23Material/html/VirtualRobot23.html#la-scena-di-wenv">SCENA WENV</a></li>
-        <br>
-        <li>Osservando la documentazione del VirtualRobot, si deduce che può essere modellato come un <b>servizio</b></li>
-        <li>Il sistema è <b>distribuito</b> su diversi nodi computazionali: le due attività sono il server e l'applicazione</li>
-        <li>L'interazione tra le diverse entità avviene tramite <b>HTTP</b></li>
-        <li>Il VirtualRobot23 (d’ora in poi denominato robot) si trova inizialmente nella situazione descritta come 
-            <a href="file:///D:/Documenti/issLab23/iss23Material/html/VirtualRobot23.html#stato-iniziale-del-virtualrobot">stato iniziale</a></li>
+        <li>l'applicazione invia il comando <b>start</b> al robot tramite <b>interazione sincrona</b></li>
     </ul>
-
-    Dall'analisi dei requisiti, si può definire una prima architettura logica del sistema da realizzare:
-    <br><br><img src="img/Appl1Arch0.png" class="center">
 </div>
 
 <h2>Problem analysis</h2>
 <div class="remark">
-    L'applicazione al momento agisce in maniera autonoma e presenta un comportamento proattivo:  
-    
+    L'applicazione ha un comportamento proattivo: una volta ricevuto il comando <b>start</b>, il robot deve eseguire autonomamente 
+    il giro della stanza. <br>
+    <br>
+    L'architettura logica può essere ridotta a:
+    <br><br><img src="img/Appl1Arch0-noConsole.png">
 </div>
 
 <h2>Test plans</h2> 
-
+<div class="remark">
+    Dato il requisito, possiamo pianificare come azione di User Acceptance Test:
+    <ul>
+        <br>
+        <li><k>testStartNoStop</k>: dopo che <i>Appl1</i> ha ricevuto (da <i>CmdConsole</i>) il comando <b>start</b>, occorre verificare che il 
+            robot abbia iniziato la sua attività, cioè sia in moto e che, al termine, esso risulti fermo in HOME avendo completato un giro.
+        </li>
+    </ul>
+</div>
 
 <h2>Project</h2> 
- 
+<div class="remark">
+    Una prima possibile soluzione è:
+    <ul>
+        <br>
+        <li>inviare un comando di movimento abbastanza lungo per garantire una collisione con il muro di fronte</li>
+        <li>dopo la collisione, inviare un comando di rotazione a sinistra</li>
+    </ul> per quattro volte, così da percorrere il bordo della stanza.
+    <br><br><br>
+    <ks>Single-responsibility principle</ks><br>
+    Ogni funzione rappresenta una singola azione: 
+        <a href="..\application1\src\main\java\unibo\daevitare\unibo\http\FlatApplication1HTTPNoStop.java">walkAtBoundary</a></li>
+    <ul>
+        <br>
+        <li>definisco una serie di comandi base per il robot: 
+            <a href="..\application1\src\main\java\unibo\common\VrobotMsgs.java"><i>VrobotMsgs</i></a>
+        </li>
+        <li>definisco una variabile <b><i>Nedges</i></b> per avere informazioni per il testing</li>
+    </ul>
+    <br>
+    <k>requestSynch</k>
+    <br>
+    <ul>
+        <li>la funzione <i><b>requestSynch</b></i> interagisce con il robot via HTTP, restituendo l’esito del movimento.</li>
+        <li>rappresenta un supporto alla comunicazione , indipendente dalla logica del problema</li>
+        <li>primo possibile <b>refactoring</b>: creazione di supporti riusabili per le comunicazioni &emsp;  
+            <a href="..\application1\src\main\java\unibo\basicomm23"><i>unibo.basicomm23</i></a></li>
+    </ul>
+
+    <br>
+    Da un punto di vista <i>logico</i>, possiamo definire delle operazioni specifiche per interagire con il robot: &emsp;
+        <a href="..\application1\src\main\java\unibo\common\IVrobotMoves.java"><i>robot moves</i></a>
+   <ul>
+        <li>l'operazione <b>step</b> muove il robot in avanti per un tempo dato</li>
+        <li>a differenza dell'operazione <b>forward</b>, <b>step</b> restituisce <i>true/false</i> a seconda dell'esito</li>
+   </ul>
+
+    <br>
+    <ks>Modello della stanza</ks><br>
+    <img src="img/ModelloStanza.png" id="left-img" >
+    <ul>
+        <li>la stanza è rettangolare: i lati opposti sono uguali</li>
+        <li>per percorrere lati uguali, il robot esegue lo stesso numero di passi</li>
+    </ul>    
 </div>
 
 <h2>Testing</h2> 
- 
+<div class="remark">
+    Definito il modello della stanza, una possibile azione di testing per verificare che il robot abbia percorso il perimetro può essere: 
+    <ul>
+        <br>
+        <li><b>contare</b> i passi eseguiti con successo per ogni lato del perimetro e 
+            controllare che il numero di passi su due lati opposti sia uguale</li>
+    </ul>
+
+</div>
 
 <h2>Deployment</h2> 
 
