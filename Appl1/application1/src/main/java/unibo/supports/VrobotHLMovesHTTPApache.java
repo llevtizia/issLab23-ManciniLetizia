@@ -6,6 +6,7 @@ import unibo.common.CollisionException;
 import unibo.common.IVrobotMoves;
 import unibo.common.VrobotMsgs;
 
+
 public class  VrobotHLMovesHTTPApache implements IVrobotMoves {
     private HTTPCommApache httpSupport  ;
 

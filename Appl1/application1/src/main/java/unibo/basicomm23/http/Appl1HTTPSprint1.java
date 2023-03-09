@@ -6,7 +6,7 @@ import unibo.common.IVrobotMoves;
 import unibo.supports.VrobotHLMovesHTTPApache;
 
 public class Appl1HTTPSprint1 {
-    private IVrobotMoves vr  ;
+    private IVrobotMoves vr  ; // per testare la posizione devo avere il virtual robot
 
     public Appl1HTTPSprint1(){
         configure();
@@ -45,11 +45,33 @@ public class Appl1HTTPSprint1 {
         throw new Exception("no collision");
     }
 
+    private int[] boundarySteps = {0, 0, 0, 0}; //For testing
+
     public void walkByStepping(int n) throws Exception {
         boolean goon = true;
         while( goon ) {
             goon =  vr.step(350);
+            if( goon ) boundarySteps[n]++;
             CommUtils.delay(300); //to show the steps better
+        }
+    }
+    public int[] getBoundarySteps(){  //for testig
+        return boundarySteps;
+    }
+
+    public boolean checkRobotAtHome() {
+        try {
+            vr.turnRight();
+            boolean res = vr.step(200);
+            if (res) return false;
+            vr.turnRight();
+            res = vr.step(200);
+            if (res) return false;
+            vr.turnLeft();
+            vr.turnLeft();
+            return true;
+        } catch (Exception e) {
+            return false;
         }
     }
 
