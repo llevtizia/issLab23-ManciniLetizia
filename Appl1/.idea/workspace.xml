@@ -5,11 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d610c50-0dfc-4bbd-8e46-ad9883a20f5e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/model/RoomModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application1/src/test/java/TestAppl1HTTPSprint1.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/http/Appl1HTTPSprint1.java" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/http/Appl1HTTPSprint1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/supports/VrobotHLMovesHTTPApache.java" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/supports/VrobotHLMovesHTTPApache.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/model/RoomModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/model/RoomModel.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -46,7 +44,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
   </component>
-  <component name="RunManager" selected="Gradle.TestAppl1HTTPSprint1">
+  <component name="RunManager" selected="Application.Appl1HTTPSprint1">
     <configuration name="Appl1HTTPSprint1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="unibo.basicomm23.http.Appl1HTTPSprint1" />
       <module name="Appl1.application1.main" />

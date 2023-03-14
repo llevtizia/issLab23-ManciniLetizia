@@ -29,9 +29,9 @@ public class Appl1HTTPSprint1 {
     }
 
     public void walkAtBoundary() throws Exception {
-        for( int i=1; i<=4; i++) {
-            walkAheadUntilCollision(i);
-            //walkByStepping();
+        for( int i = 0; i < 4; i++) {
+            //walkAheadUntilCollision(i);
+            walkByStepping(i);
             vr.turnLeft();
         }
     }
