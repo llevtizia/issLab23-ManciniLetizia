@@ -5,7 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d610c50-0dfc-4bbd-8e46-ad9883a20f5e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Appl1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Appl1/.idea/workspace.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/http/Appl1HTTPSprint2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/http/Appl1Core.java" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/http/Appl1Core.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/console/CmdConsoleSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/console/CmdConsoleSimulator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userDocs/Appl1HTTPSprint2ManciniLetizia.html" beforeDir="false" afterPath="$PROJECT_DIR$/userDocs/Appl1HTTPSprint2ManciniLetizia.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -43,9 +47,22 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager" selected="Application.Appl1HTTPSprint1">
+  <component name="RunManager" selected="Application.Appl1HTTPSprint2">
     <configuration name="Appl1HTTPSprint1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="unibo.basicomm23.http.Appl1HTTPSprint1" />
+      <module name="Appl1.application1.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="unibo.basicomm23.http.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Appl1HTTPSprint2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="unibo.basicomm23.http.Appl1HTTPSprint2" />
       <module name="Appl1.application1.main" />
       <extension name="coverage">
         <pattern>
@@ -118,6 +135,7 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Appl1HTTPSprint2" />
         <item itemvalue="Gradle.TestAppl1HTTPSprint1" />
         <item itemvalue="Application.Appl1HTTPSprint1" />
         <item itemvalue="Gradle.TestFlatApplication1HTTPNostop" />

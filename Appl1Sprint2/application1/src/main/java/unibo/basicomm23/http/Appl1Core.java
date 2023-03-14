@@ -28,6 +28,7 @@ public class Appl1Core implements IAppl1Core {
     public void start() {
         try {
             if ( ! started ) {
+                checkRobotAtHome();
                 started = true;
                 walkAtBoundary();
             } else
@@ -85,4 +86,21 @@ public class Appl1Core implements IAppl1Core {
         stopped = false;
         notifyAll();  //riattiva waitResume
     }
+
+    public boolean checkRobotAtHome() {
+        try {
+            vr.turnRight();
+            boolean res = vr.step(200);
+            if (res) return false;
+            vr.turnRight();
+            res = vr.step(200);
+            if (res) return false;
+            vr.turnLeft();
+            vr.turnLeft();
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
+
 }
