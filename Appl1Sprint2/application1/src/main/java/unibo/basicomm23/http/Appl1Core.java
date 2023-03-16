@@ -4,14 +4,14 @@ import unibo.basicomm23.utils.CommUtils;
 import unibo.common.IAppl1Core;
 import unibo.common.IVrobotMoves;
 import unibo.model.RoomModel;
-import unibo.observer.Appl1ObserverForpath;
+import unibo.observer.Appl1ObserverForPath;
 import unibo.supports.VrobotHLMovesHTTPApache;
 
 public class Appl1Core extends java.util.Observable  implements IAppl1Core  {
     protected boolean started    = false;
     protected boolean stopped    = false;
     protected IVrobotMoves vr ;
-    protected Appl1ObserverForpath obsForpath ;
+    private Appl1ObserverForPath obsForpath;
 
     protected RoomModel room ;
 
@@ -25,6 +25,9 @@ public class Appl1Core extends java.util.Observable  implements IAppl1Core  {
         //URL potrebbe essere letto da un file di configurazione
         HTTPCommApache httpSupport = new HTTPCommApache(  URL );
         vr = new VrobotHLMovesHTTPApache( httpSupport );
+        //AGGIUNGO OBSERVER
+        obsForpath = new Appl1ObserverForPath();
+        addObserver(  obsForpath );
 
     }
 
@@ -44,6 +47,7 @@ public class Appl1Core extends java.util.Observable  implements IAppl1Core  {
 
     private void walkAtBoundary() {
         try {
+            robotMustBeAtHome("START");
             for( int i=1; i<=4;i++) {
                 walkBySteppingWithStop(i);
                 vr.turnLeft();
