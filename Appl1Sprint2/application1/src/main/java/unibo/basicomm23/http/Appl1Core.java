@@ -4,13 +4,16 @@ import unibo.basicomm23.utils.CommUtils;
 import unibo.common.IAppl1Core;
 import unibo.common.IVrobotMoves;
 import unibo.model.RoomModel;
+import unibo.observer.Appl1ObserverForpath;
 import unibo.supports.VrobotHLMovesHTTPApache;
 
-public class Appl1Core implements IAppl1Core {
+public class Appl1Core extends java.util.Observable  implements IAppl1Core  {
     protected boolean started    = false;
     protected boolean stopped    = false;
     protected IVrobotMoves vr ;
-    private RoomModel room;
+    protected Appl1ObserverForpath obsForpath ;
+
+    protected RoomModel room ;
 
     public Appl1Core(){
         stopped = false;
@@ -22,13 +25,14 @@ public class Appl1Core implements IAppl1Core {
         //URL potrebbe essere letto da un file di configurazione
         HTTPCommApache httpSupport = new HTTPCommApache(  URL );
         vr = new VrobotHLMovesHTTPApache( httpSupport );
+
     }
 
     @Override
     public void start() {
         try {
             if ( ! started ) {
-                checkRobotAtHome();
+                //checkRobotAtHome();
                 started = true;
                 walkAtBoundary();
             } else
@@ -87,10 +91,21 @@ public class Appl1Core implements IAppl1Core {
         notifyAll();  //riattiva waitResume
     }
 
-    public boolean checkRobotAtHome() {
+    // observer
+    private void updateObservers(String msg){
+        setChanged();
+        notifyObservers(msg);
+    }
+
+    private void robotMustBeAtHome(String msg) throws Exception{
+        if( checkRobotAtHome(msg) ) updateObservers("robot-athomebegin");
+        else throw new Exception("START: Robot must be at HOME");
+    }
+
+    private boolean checkRobotAtHome(String msg) {
         try {
             vr.turnRight();
-            boolean res = vr.step(200);
+            boolean res = vr.step(200); //a little step ...
             if (res) return false;
             vr.turnRight();
             res = vr.step(200);
@@ -102,5 +117,4 @@ public class Appl1Core implements IAppl1Core {
             return false;
         }
     }
-
 }

@@ -5,10 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d610c50-0dfc-4bbd-8e46-ad9883a20f5e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/userDocs/Appl1HTTPSprint2ManciniLetizia.pdf" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/userDocs/styles/style.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/interfaces/IObserver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/utils/ApplAbstractObserver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userDocs/Appl1HTTPSprint2ManciniLetizia.html" beforeDir="false" afterPath="$PROJECT_DIR$/userDocs/Appl1HTTPSprint2ManciniLetizia.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/http/Appl1Core.java" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/http/Appl1Core.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
