@@ -27,7 +27,9 @@ public class Appl1CoreSprint2 extends java.util.Observable  implements IAppl1Cor
     protected int stepTime = 350;
 
     public Appl1CoreSprint2() {
-
+        // SPRINT 2
+        stopped = false;
+        configure();
     }
 
     @Override
@@ -35,9 +37,23 @@ public class Appl1CoreSprint2 extends java.util.Observable  implements IAppl1Cor
         super.addObserver(o);
     }
 
-    protected void configure( ) throws Exception {
-        stopped = false;
-        readConfigFile();
+    protected void configure( ) {
+        String URL = "localhost:8090/api/move";
+        //URL potrebbe essere letto da un file di configurazione
+        HTTPCommApache httpSupport = new HTTPCommApache(  URL );
+        vr = new VrobotHLMovesHTTPApache( httpSupport );
+        // aggiungo observer
+        obsForpath = new Appl1ObserverForPath();
+        addObserver(  obsForpath );
+
+        //stopped = false;
+        /* try {
+            readConfigFile();
+        } catch (Exception e) {
+            CommUtils.outred("      configure | ERROR:" + e.getMessage());
+        }
+
+        */
     }
 
     protected void readConfigFile() throws Exception {
@@ -92,6 +108,7 @@ public class Appl1CoreSprint2 extends java.util.Observable  implements IAppl1Cor
             updateObservers("robot-athomebegin");
             isRunning  = true;
             for( int i=1; i<=4; i++ ) {
+                CommUtils.delay(3000);
                 walkBySteppingWithStop(i);
                 vr.turnLeft();
                 //CommUtils.delay(300);

@@ -3,10 +3,12 @@ package unibo.basicomm23.http;
 import unibo.basicomm23.utils.CommUtils;
 import unibo.common.CollisionException;
 import unibo.common.IVrobotMoves;
+import unibo.model.RoomModel;
 import unibo.supports.VrobotHLMovesHTTPApache;
 
 public class Appl1HTTPSprint1 {
     private IVrobotMoves vr  ; // per testare la posizione devo avere il virtual robot
+    private RoomModel room;
 
     public Appl1HTTPSprint1(){
         configure();
@@ -45,18 +47,16 @@ public class Appl1HTTPSprint1 {
         throw new Exception("no collision");
     }
 
-    private int[] boundarySteps = {0, 0, 0, 0}; //For testing
+
 
     public void walkByStepping(int n) throws Exception {
+        int step = room.getBoundarySteps(n);
         boolean goon = true;
         while( goon ) {
             goon =  vr.step(350);
-            if( goon ) boundarySteps[n]++;
+            if( goon ) step++;
             CommUtils.delay(300); //to show the steps better
         }
-    }
-    public int[] getBoundarySteps(){  //for testig
-        return boundarySteps;
     }
 
     public boolean checkRobotAtHome() {

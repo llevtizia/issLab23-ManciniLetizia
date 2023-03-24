@@ -1,12 +1,13 @@
 package unibo.console;
 
 import unibo.basicomm23.http.Appl1Core;
+import unibo.basicomm23.http.Appl1CoreSprint2;
 import unibo.basicomm23.utils.CommUtils;
 
 public class CmdConsoleSimulator {
-    private Appl1Core appl;
+    private Appl1CoreSprint2 appl;
 
-    public CmdConsoleSimulator( Appl1Core appl ){
+    public CmdConsoleSimulator( Appl1CoreSprint2 appl ){
         this.appl = appl;
     }
 

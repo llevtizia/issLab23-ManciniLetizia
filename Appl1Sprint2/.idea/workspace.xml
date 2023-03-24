@@ -4,23 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d610c50-0dfc-4bbd-8e46-ad9883a20f5e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/application1/sprint2config.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/http/Appl1CoreSprint2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/console/gui/Appl1HttpSprint2CmdConsole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/console/gui/ButtonAsGui.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/console/gui/ButtonBasic.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/console/gui/GuiUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/observer/Appl1CoreTestStartStopObserver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application1/src/test/java/unibo/appl1/http/TestAppl1HTTPSprint2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/http/Appl1Core.java" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/http/Appl1Core.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/http/Appl1HTTPSprint2.java" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/http/Appl1HTTPSprint2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/common/IAppl1Core.java" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/interfaces/IAppl1Core.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/observer/Appl1ObserverForPath.java" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/observer/Appl1ObserverForPath.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application1/src/test/java/TestAppl1HTTPSprint1.java" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/test/java/unibo/appl1/http/TestAppl1HTTPSprint1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/userDocs/Appl1HTTPSprint2ManciniLetizia.html" beforeDir="false" afterPath="$PROJECT_DIR$/userDocs/Appl1HTTPSprint2ManciniLetizia.html" afterDir="false" />
-    </list>
+    <list default="true" id="0d610c50-0dfc-4bbd-8e46-ad9883a20f5e" name="Changes" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -55,18 +39,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../issLab23/Appl1" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
-      <recent name="unibo.console.gui" />
-    </key>
-  </component>
-  <component name="RunManager" selected="Application.Appl1HTTPSprint2">
+  <component name="RunManager" selected="Application.Appl1HTTPSprint1">
     <configuration name="Appl1HTTPSprint1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="unibo.basicomm23.http.Appl1HTTPSprint1" />
       <module name="Appl1.application1.main" />
@@ -80,25 +55,12 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="Appl1HTTPSprint2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="unibo.basicomm23.http.Appl1HTTPSprint2" />
+    <configuration name="FlatApplication1HTTPNoStop" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="unibo.daevitare.unibo.http.FlatApplication1HTTPNoStop" />
       <module name="Appl1.application1.main" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="unibo.basicomm23.http.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Appl1HttpSprint2CmdConsole" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="unibo.console.gui.Appl1HttpSprint2CmdConsole" />
-      <module name="Appl1.application1.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="unibo.console.gui.*" />
+          <option name="PATTERN" value="unibo.daevitare.unibo.http.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -129,7 +91,7 @@
       <DebugAllEnabled>false</DebugAllEnabled>
       <method v="2" />
     </configuration>
-    <configuration name="TestAppl1HTTPSprint2" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
+    <configuration name="TestFlatApplication1HTTPNostop" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
         <option name="externalProjectPath" value="$PROJECT_DIR$" />
@@ -142,7 +104,7 @@
           <list>
             <option value=":application1:test" />
             <option value="--tests" />
-            <option value="&quot;unibo.appl1.http.TestAppl1HTTPSprint2&quot;" />
+            <option value="&quot;TestFlatApplication1HTTPNostop&quot;" />
           </list>
         </option>
         <option name="vmOptions" />
@@ -154,11 +116,10 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.Appl1HttpSprint2CmdConsole" />
-        <item itemvalue="Gradle.TestAppl1HTTPSprint2" />
-        <item itemvalue="Application.Appl1HTTPSprint2" />
         <item itemvalue="Gradle.TestAppl1HTTPSprint1" />
         <item itemvalue="Application.Appl1HTTPSprint1" />
+        <item itemvalue="Gradle.TestFlatApplication1HTTPNostop" />
+        <item itemvalue="Application.FlatApplication1HTTPNoStop" />
       </list>
     </recent_temporary>
   </component>
