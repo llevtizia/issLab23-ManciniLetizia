@@ -1,23 +1,22 @@
 package unibo.basicomm23.http;
 
 import unibo.basicomm23.utils.CommUtils;
-import unibo.console.CmdConsoleSimulator;
+import unibo.console.gui.Appl1HttpSprint2CmdConsole;
 
 public class Appl1HTTPSprint2 {
-    private Appl1Core appl1Core;
-    private CmdConsoleSimulator cmdConsole;
+    private Appl1CoreSprint2 appl1Core;
 
-    public Appl1HTTPSprint2(){
+    public Appl1HTTPSprint2() throws Exception{
         configureTheSystem();
     }
 
-    private void configureTheSystem(){
-        appl1Core  = new Appl1Core();
-        cmdConsole = new CmdConsoleSimulator(appl1Core);
+    private void configureTheSystem() throws Exception{
+        appl1Core  = new Appl1CoreSprint2();
     }
 
     public void doJob() throws Exception{
-        cmdConsole.activate(  );   //invoca start/stop/resume
+        CommUtils.outmagenta("Activate Appl1HttpSprint3CmdConsole ");
+        new Appl1HttpSprint2CmdConsole();
     }
 
     public static void main( String[] args ) throws Exception {
