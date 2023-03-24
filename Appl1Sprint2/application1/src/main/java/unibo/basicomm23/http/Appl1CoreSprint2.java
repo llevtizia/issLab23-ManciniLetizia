@@ -11,6 +11,7 @@ public class Appl1CoreSprint2 extends java.util.Observable implements IAppl1Core
 
     protected boolean started = false;
     protected boolean stopped = false;
+    protected boolean isRunning = false;
 
     private Appl1ObserverForPath obsForPath;
     protected IVrobotMoves vr;
@@ -57,10 +58,14 @@ public class Appl1CoreSprint2 extends java.util.Observable implements IAppl1Core
             vr.turnLeft();
         }*/
         robotMustBeAtHome("START"); //SE PROBLEMI: updateObservers("robot-athomebegin");
+        updateObservers("robot-athomebegin");
+        isRunning = true;
         for ( int i = 0; i <4 ; i++ ) {
             walkBySteppingWithStop(i);
             vr.turnLeft();
         }
+        isRunning = false;
+        updateObservers("robot-athomeend");
         robotMustBeAtHome("END"); //SE PROBLEMI: updateObservers("robot-athomeend");
     }
 
@@ -107,6 +112,19 @@ public class Appl1CoreSprint2 extends java.util.Observable implements IAppl1Core
     public synchronized  void resume() {
         stopped = false;
         notifyAll();
+    }
+
+    @Override
+    public boolean isRunning() {
+        return isRunning;
+    }
+
+    @Override
+    public String getCurrentPath() {
+        if ( obsForPath != null)
+            return obsForPath.getCurrentPath();
+        else
+            return "no path";
     }
 
     // robot
