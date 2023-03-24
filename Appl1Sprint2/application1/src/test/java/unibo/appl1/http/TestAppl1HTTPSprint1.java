@@ -1,3 +1,5 @@
+package unibo.appl1.http;
+
 import org.junit.Before;
 import org.junit.Test;
 import unibo.basicomm23.http.Appl1HTTPSprint1;
