@@ -5,13 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d610c50-0dfc-4bbd-8e46-ad9883a20f5e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/http/Appl1HTTPSprint2V2.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/console/gui/Appl1HttpSprint2CmdConsole.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/console/gui/ButtonAsGui.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/http/Appl1CoreSprint2.java" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/http/Appl1CoreSprint2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/common/IAppl1Core.java" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/common/IAppl1Core.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/console/gui/ButtonBasic.java" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/console/gui/ButtonBasic.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
