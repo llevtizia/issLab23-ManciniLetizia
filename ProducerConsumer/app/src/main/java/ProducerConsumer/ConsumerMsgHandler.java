@@ -23,7 +23,10 @@ private ConsumerLogic consunerLogic;
             String d = message.msgContent();
             String m = consunerLogic.evalDistance( d ) ;
             //CommUtils.outgreen(m);
+            // dovrei fare un check sul tipo di messaggio ricevuto (verificare sia una request)
             IApplMessage reply = CommUtils.buildReply("consumer", "outdata", m, message.msgSender());
+            // msg.Sender() = destinatario --> reply a chi aveva mandato la request
+            // m = payload
             conn.reply( reply );
         } catch (Exception e) {
              e.printStackTrace();

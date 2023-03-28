@@ -1,7 +1,7 @@
 package ProducerConsumer;
 
 
-import unibo.basicomm23.interfaces.Interaction;
+import unibo.basicomm23.interfaces.Interaction; // factory
 import unibo.basicomm23.msg.ProtocolType;
 import unibo.basicomm23.utils.CommUtils;
 import unibo.basicomm23.utils.ConnectionFactory;
@@ -18,14 +18,16 @@ public abstract class ActorNaiveCaller {
         this.name     = name;
         this.protocol = protocol;
         this.hostAddr = hostAddr;
-        this. entry   = entry;
+        this. entry   = entry; // tcp-udp port
     }
 
 
     protected void connect(){
-        if( connected ) return;
+        if ( connected ) return;
         connected   = true;
-        connSupport = ConnectionFactory.createClientSupport23(protocol, hostAddr, entry);
+        connSupport = ConnectionFactory.createClientSupport23(protocol, hostAddr, entry);   // protocol
+                                                                                            // address
+                                                                                            // entry (port)
         //CommUtils.outblue(name + " | connected client=" + connSupport);
     }
 
@@ -33,8 +35,8 @@ public abstract class ActorNaiveCaller {
         new Thread(){
             public void run(){
                 try {
-                    connect();
-                    body();
+                    connect(); // la prima cosa che fa è tentare una connessione con l'host
+                    body(); // la logica di quello che deve fare il caller
                   } catch (Exception e) {
                     CommUtils.outred("");
                 }
