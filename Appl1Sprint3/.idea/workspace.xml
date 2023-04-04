@@ -4,9 +4,58 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="0d610c50-0dfc-4bbd-8e46-ad9883a20f5e" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/../Appl1/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Appl1/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../ProducerConsumer/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProducerConsumer/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="4011ddd3-38b4-4fdb-b957-f899e7c4ec9a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/console/gui/CmdConsoleRemote.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" afterPath="$PROJECT_DIR$/.gitattributes" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/appl1/App.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/appl1/App.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/appl1/AppTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/test/java/appl1/AppTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/application1/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/Application1.java" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/Application1.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/http/Appl1CoreSprint2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/http/Appl1HTTPSprint1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/http/Appl1HTTPSprint2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/http/Appl1HTTPSprint2V2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/http/Appl1HTTPSprint3.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/http/HTTPCommApache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/interfaces/IObserver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/msg/ProtocolType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/utils/ApplAbstractObserver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/common/CollisionException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/common/IAppl1Core.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/common/IVrobotMoves.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/common/VrobotMsgs.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/console/CmdConsoleSimulator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/console/gui/Appl1HttpSprint2CmdConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/console/gui/Appl1HttpSprint2CmdConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/console/gui/ButtonAsGui.java" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/console/gui/ButtonAsGui.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/console/gui/ButtonBasic.java" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/console/gui/ButtonBasic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/console/gui/GuiUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/console/gui/GuiUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/daevitare/unibo/http/FlatApplication1HTTPNoStop.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/model/RoomModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/observer/Appl1CoreTestStartStopObserver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/observer/Appl1ObserverForPath.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/supports/VrobotHLMovesHTTPApache.java" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/supports/VrobotHLMovesHTTPApache.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/test/java/TestFlatApplication1HTTPNostop.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/test/java/unibo/appl1/http/TestAppl1HTTPSprint1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/test/java/unibo/appl1/http/TestAppl1HTTPSprint2.java" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/test/java/unibo/appl1/http/TestAppl1HTTPSprint2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" afterPath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" afterPath="$PROJECT_DIR$/gradlew.bat" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/settings.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/userDocs/Appl1HTTPSprint1ManciniLetizia.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/userDocs/Appl1HTTPSprint1ManciniLetizia.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/userDocs/ManciniLetiziaApplication1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/userDocs/ManciniLetiziaApplication1.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/userDocs/img/Appl1Arch0-noConsole.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/userDocs/img/Appl1Arch0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/userDocs/img/ModelloStanza.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/userDocs/img/picture.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../unibolibs/unibo.basicomm23-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../unibolibs/unibo.basicomm23-1.0.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -18,22 +67,13 @@
       <ProjectState />
     </projectState>
   </component>
-  <component name="FileTemplateManagerImpl">
-    <option name="RECENT_TEMPLATES">
-      <list>
-        <option value="Enum" />
-        <option value="Interface" />
-        <option value="Class" />
-      </list>
-    </option>
-  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectId" id="2MheBKynP3c83WL3Vx3uDTIxjqr" />
+  <component name="ProjectId" id="2NPQAeBHRtVI9r7b3kMFQSuKR7p" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -42,129 +82,17 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Project" />
-    <property name="project.structure.proportion" value="0.15" />
-    <property name="project.structure.side.proportion" value="0.0" />
-    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
-  </component>
-  <component name="RunManager" selected="Application.Appl1HTTPSprint2V2">
-    <configuration name="Appl1HTTPSprint1" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="unibo.basicomm23.http.Appl1HTTPSprint1" />
-      <module name="Appl1.application1.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="unibo.basicomm23.http.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Appl1HTTPSprint2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="unibo.basicomm23.http.Appl1HTTPSprint2" />
-      <module name="Appl1.application1.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="unibo.basicomm23.http.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="Appl1HTTPSprint2V2" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="unibo.basicomm23.http.Appl1HTTPSprint2V2" />
-      <module name="Appl1.application1.main" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="unibo.basicomm23.http.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="TestAppl1HTTPSprint1" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":application1:test" />
-            <option value="--tests" />
-            <option value="&quot;TestAppl1HTTPSprint1&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <configuration name="TestAppl1HTTPSprint2" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
-      <ExternalSystemSettings>
-        <option name="executionName" />
-        <option name="externalProjectPath" value="$PROJECT_DIR$" />
-        <option name="externalSystemIdString" value="GRADLE" />
-        <option name="scriptParameters" value="" />
-        <option name="taskDescriptions">
-          <list />
-        </option>
-        <option name="taskNames">
-          <list>
-            <option value=":application1:test" />
-            <option value="--tests" />
-            <option value="&quot;unibo.appl1.http.TestAppl1HTTPSprint2&quot;" />
-          </list>
-        </option>
-        <option name="vmOptions" />
-      </ExternalSystemSettings>
-      <ExternalSystemDebugServerProcess>false</ExternalSystemDebugServerProcess>
-      <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
-      <DebugAllEnabled>false</DebugAllEnabled>
-      <method v="2" />
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Appl1HTTPSprint2V2" />
-        <item itemvalue="Gradle.TestAppl1HTTPSprint2" />
-        <item itemvalue="Application.Appl1HTTPSprint2" />
-        <item itemvalue="Gradle.TestAppl1HTTPSprint1" />
-        <item itemvalue="Application.Appl1HTTPSprint1" />
-      </list>
-    </recent_temporary>
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ProducerConsumer" />
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="0d610c50-0dfc-4bbd-8e46-ad9883a20f5e" name="Changes" comment="" />
-      <created>1678224107657</created>
+      <changelist id="4011ddd3-38b4-4fdb-b957-f899e7c4ec9a" name="Changes" comment="" />
+      <created>1679563102257</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1678224107657</updated>
+      <updated>1679563102257</updated>
     </task>
     <servers />
-  </component>
-  <component name="Vcs.Log.Tabs.Properties">
-    <option name="TAB_STATES">
-      <map>
-        <entry key="MAIN">
-          <value>
-            <State />
-          </value>
-        </entry>
-      </map>
-    </option>
   </component>
 </project>
