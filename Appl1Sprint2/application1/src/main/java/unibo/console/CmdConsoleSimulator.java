@@ -7,6 +7,7 @@ public class CmdConsoleSimulator {
     private Appl1CoreSprint2 appl;
 
     public CmdConsoleSimulator( Appl1CoreSprint2 appl ) {
+
         this.appl = appl;
     }
 
@@ -15,7 +16,7 @@ public class CmdConsoleSimulator {
             cmdConsoleSim.start();
             appl.start();
         } catch ( Exception e ) {
-            CommUtils.outred("  cmdConsoleSimulator activate error | " + e);
+
         }
     }
 

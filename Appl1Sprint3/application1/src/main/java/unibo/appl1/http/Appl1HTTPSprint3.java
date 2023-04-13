@@ -26,12 +26,12 @@ public class Appl1HTTPSprint3 {
 
         //Create the console
         // le commento per non far partire la console
-        CmdConsoleRemote console =
-              new CmdConsoleRemote("appl1Console", ProtocolType.tcp, "localhost", "8030");
+        // CmdConsoleRemote console =
+        //      new CmdConsoleRemote("appl1Console", ProtocolType.tcp, "localhost", "8030");
 
         //Activate
         appl.start();
-        console.activate();
+        //console.activate();
 
         //CommUtils.delay(200000);
         CommUtils.aboutThreads("After start - ");

@@ -5,10 +5,66 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d610c50-0dfc-4bbd-8e46-ad9883a20f5e" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/http/Appl1CoreSprint2.java" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/http/Appl1CoreSprint2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/http/Appl1HTTPSprint2.java" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/http/Appl1HTTPSprint2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/console/CmdConsoleSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/console/CmdConsoleSimulator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/appl1/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/test/java/appl1/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/sprint2config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/Application1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/http/Appl1Core.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/http/Appl1CoreSprint2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/http/Appl1HTTPSprint1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/http/Appl1HTTPSprint2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/http/HTTPCommApache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/interfaces/IAppl1Core.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/interfaces/IObserver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/msg/ProtocolType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/basicomm23/utils/ApplAbstractObserver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/common/CollisionException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/common/IVrobotMoves.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/common/VrobotMsgs.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/console/CmdConsoleSimulator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/console/gui/Appl1HttpSprint2CmdConsole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/console/gui/ButtonAsGui.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/console/gui/ButtonBasic.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/console/gui/GuiUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/daevitare/unibo/http/FlatApplication1HTTPNoStop.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/model/RoomModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/observer/Appl1CoreTestStartStopObserver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/observer/Appl1ObserverForPath.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/supports/VrobotHLMovesHTTPApache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/test/java/TestFlatApplication1HTTPNostop.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/test/java/unibo/appl1/http/TestAppl1HTTPSprint1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/test/java/unibo/appl1/http/TestAppl1HTTPSprint2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/userDocs/Appl1HTTPSprint1ManciniLetizia.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/userDocs/Appl1HTTPSprint1ManciniLetiziaV1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/userDocs/Appl1HTTPSprint2ManciniLetizia.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/userDocs/Appl1HTTPSprint2ManciniLetizia.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/userDocs/ManciniLetiziaApplication1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/userDocs/img/Appl1Arch0-noConsole.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/userDocs/img/Appl1Arch0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/userDocs/img/Appl1HTTPSprint2Arch.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/userDocs/img/ModelloStanza.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/userDocs/img/picture.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/userDocs/styles/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Appl1Sprint2/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Appl1Sprint2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint3/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Appl1Sprint3/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -45,7 +101,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../issLab23/Appl1" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Appl1Sprint2" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
     <property name="project.structure.side.proportion" value="0.0" />

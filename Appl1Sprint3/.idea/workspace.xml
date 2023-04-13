@@ -5,6 +5,76 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4011ddd3-38b4-4fdb-b957-f899e7c4ec9a" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/main/java/unibo/common/IBox.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/main/java/unibo/common/IRoomModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/main/java/unibo/model/Box.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/.idea/.name" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/.idea/compiler.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/.idea/gradle.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/.idea/jarRepositories.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/.idea/misc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/.idea/uiDesigner.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/.idea/vcs.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Appl1Sprint2 - old/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/app/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/app/src/main/java/appl1/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/app/src/test/java/appl1/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/application1/build.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/application1/sprint2config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/application1/src/main/java/unibo/Application1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/application1/src/main/java/unibo/basicomm23/http/Appl1Core.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/application1/src/main/java/unibo/basicomm23/http/Appl1CoreSprint2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/application1/src/main/java/unibo/basicomm23/http/Appl1HTTPSprint1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/application1/src/main/java/unibo/basicomm23/http/Appl1HTTPSprint2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/application1/src/main/java/unibo/basicomm23/http/HTTPCommApache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/application1/src/main/java/unibo/basicomm23/interfaces/IAppl1Core.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/application1/src/main/java/unibo/basicomm23/interfaces/IObserver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/application1/src/main/java/unibo/basicomm23/msg/ProtocolType.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/application1/src/main/java/unibo/basicomm23/utils/ApplAbstractObserver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/application1/src/main/java/unibo/common/CollisionException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/application1/src/main/java/unibo/common/IVrobotMoves.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/application1/src/main/java/unibo/common/VrobotMsgs.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/application1/src/main/java/unibo/console/CmdConsoleSimulator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/application1/src/main/java/unibo/console/gui/Appl1HttpSprint2CmdConsole.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/application1/src/main/java/unibo/console/gui/ButtonAsGui.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/application1/src/main/java/unibo/console/gui/ButtonBasic.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/application1/src/main/java/unibo/console/gui/GuiUtils.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/application1/src/main/java/unibo/daevitare/unibo/http/FlatApplication1HTTPNoStop.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/application1/src/main/java/unibo/model/RoomModel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/application1/src/main/java/unibo/observer/Appl1CoreTestStartStopObserver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/application1/src/main/java/unibo/observer/Appl1ObserverForPath.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/application1/src/main/java/unibo/supports/VrobotHLMovesHTTPApache.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/application1/src/test/java/TestFlatApplication1HTTPNostop.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/application1/src/test/java/unibo/appl1/http/TestAppl1HTTPSprint1.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/application1/src/test/java/unibo/appl1/http/TestAppl1HTTPSprint2.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/gradle/wrapper/gradle-wrapper.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/gradle/wrapper/gradle-wrapper.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/gradlew" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/gradlew.bat" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/settings.gradle" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/userDocs/Appl1HTTPSprint1ManciniLetizia.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/userDocs/Appl1HTTPSprint1ManciniLetiziaV1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/userDocs/Appl1HTTPSprint2ManciniLetizia.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/userDocs/Appl1HTTPSprint2ManciniLetizia.pdf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/userDocs/ManciniLetiziaApplication1.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/userDocs/img/Appl1Arch0-noConsole.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/userDocs/img/Appl1Arch0.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/userDocs/img/Appl1HTTPSprint2Arch.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/userDocs/img/ModelloStanza.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/userDocs/img/picture.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/userDocs/styles/style.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Appl1Sprint2/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Appl1Sprint2/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/main/java/unibo/basicomm23/http/Appl1CoreSprint2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/main/java/unibo/basicomm23/http/Appl1CoreSprint2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/main/java/unibo/basicomm23/http/Appl1HTTPSprint2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/main/java/unibo/basicomm23/http/Appl1HTTPSprint2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/main/java/unibo/basicomm23/utils/ApplAbstractObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/main/java/unibo/basicomm23/utils/ApplAbstractObserver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/main/java/unibo/console/CmdConsoleSimulator.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/main/java/unibo/console/CmdConsoleSimulator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/main/java/unibo/model/RoomModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/main/java/unibo/model/RoomModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/main/java/unibo/observer/Appl1CoreTestStartStopObserver.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/main/java/unibo/observer/Appl1CoreTestStartStopObserver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/main/java/unibo/observer/Appl1ObserverForPath.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/main/java/unibo/observer/Appl1ObserverForPath.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/test/java/unibo/appl1/http/TestAppl1HTTPSprint2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/test/java/unibo/appl1/http/TestAppl1HTTPSprint2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/executionHistory/executionHistory.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/executionHistory/executionHistory.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/executionHistory/executionHistory.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/executionHistory/executionHistory.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/fileHashes.bin" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/7.4.2/fileHashes/fileHashes.bin" afterDir="false" />
@@ -13,7 +83,11 @@
       <change beforePath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/buildOutputCleanup/buildOutputCleanup.lock" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.gradle/file-system.probe" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/file-system.probe" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/application1/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/sprint3Config.json" beforeDir="false" afterPath="$PROJECT_DIR$/application1/sprint3Config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/appl1/http/Appl1HTTPSprint3.java" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/appl1/http/Appl1HTTPSprint3.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/console/gui/CmdConsoleRemote.java" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/console/gui/CmdConsoleRemote.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/sprint3Config.json" beforeDir="false" afterPath="$PROJECT_DIR$/sprint3Config.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,9 +114,9 @@
   <component name="PropertiesComponent">
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ProducerConsumer" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
   </component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.Appl1HttpSprint3CmdConsole">
     <configuration name="Appl1HTTPSprint3" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="unibo.appl1.http.Appl1HTTPSprint3" />
       <module name="Appl1.application1.main" />
@@ -56,8 +130,36 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Appl1HttpSprint3CmdConsole" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="unibo.console.gui.Appl1HttpSprint3CmdConsole" />
+      <module name="Appl1.application1.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="unibo.console.gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CmdConsoleRemote" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="unibo.console.gui.CmdConsoleRemote" />
+      <module name="Appl1.application1.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="unibo.console.gui.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.Appl1HttpSprint3CmdConsole" />
+        <item itemvalue="Application.CmdConsoleRemote" />
         <item itemvalue="Application.Appl1HTTPSprint3" />
       </list>
     </recent_temporary>

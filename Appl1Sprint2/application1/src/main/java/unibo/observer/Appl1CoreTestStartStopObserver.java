@@ -25,6 +25,7 @@ public class Appl1CoreTestStartStopObserver extends ApplAbstractObserver  {
 
     // per riusare l'observer in fase di testing
     public void init( ) {
+
         moveHistory = new Vector<String>();
     }
 
@@ -55,6 +56,7 @@ public class Appl1CoreTestStartStopObserver extends ApplAbstractObserver  {
 
     // utility methods
     public Vector<String> getMoveHistory() {
+
         return moveHistory;
     }
 

@@ -7,6 +7,7 @@ import java.util.Observable;
 public abstract class ApplAbstractObserver implements IObserver {
     @Override
     public void update(Observable o, Object arg) {
+
         this.update(arg.toString());
     }
 

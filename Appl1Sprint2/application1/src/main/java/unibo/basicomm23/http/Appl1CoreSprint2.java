@@ -58,14 +58,14 @@ public class Appl1CoreSprint2 extends java.util.Observable implements IAppl1Core
             vr.turnLeft();
         }*/
         robotMustBeAtHome("START"); //SE PROBLEMI: updateObservers("robot-athomebegin");
-        updateObservers("robot-athomebegin");
+        //updateObservers("robot-athomebegin");
         isRunning = true;
         for ( int i = 0; i <4 ; i++ ) {
             walkBySteppingWithStop(i);
             vr.turnLeft();
         }
         isRunning = false;
-        updateObservers("robot-athomeend");
+        //updateObservers("robot-athomeend");
         robotMustBeAtHome("END"); //SE PROBLEMI: updateObservers("robot-athomeend");
     }
 

@@ -21,7 +21,7 @@ public class TestAppl1HTTPSprint2 {
         try {
             appl = new Appl1CoreSprint2();
             obsStartStop = new Appl1CoreTestStartStopObserver();
-            obsStartStop.init();
+            //obsStartStop.init();
             // aggiungo osservatore per start/stop
             appl.addObserver(obsStartStop);
             CommUtils.outmagenta("initSystem for testing OK ");

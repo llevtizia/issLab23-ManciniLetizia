@@ -33,8 +33,8 @@ public class Appl1ObserverForPath extends ApplAbstractObserver {
             moveHistory.add("l");
         else if ( string.contains("robot-collision") ) {
             moveHistory.add("|");
-            s = getPathAsCompactString();
-            CommUtils.outgreen(s);
+            //s = getPathAsCompactString();
+            //CommUtils.outgreen(s);
         }
         else if ( string.equals("robot-athomeend") )
             setTerminated();
@@ -43,6 +43,7 @@ public class Appl1ObserverForPath extends ApplAbstractObserver {
     }
 
     private void setTerminated( ) {
+        CommUtils.outmagenta("         Appl1ObserverForPath: Application TERMINATED");
         applIsTerminated = true;
         notifyAll(); // riattiva getPath
     }
@@ -59,9 +60,11 @@ public class Appl1ObserverForPath extends ApplAbstractObserver {
     }
 
     public String getCurrentPath( ){
+
         return getPathAsCompactString( );
     }
 
+    // blocca il chiamante se la computazione è in corso
     public synchronized String getPath(){
         CommUtils.outmagenta("Appl1ObserverForpath: getPath applIsTerminated=" + applIsTerminated);
         while ( ! applIsTerminated ) {

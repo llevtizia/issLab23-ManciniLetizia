@@ -8,8 +8,10 @@ public class Appl1HTTPSprint2 {
     private CmdConsoleSimulator cmdConsole;
 
     public Appl1HTTPSprint2(){
+
         configureTheSystem();
     }
+
     private void configureTheSystem(){
         appl1Core  = new Appl1CoreSprint2();
         cmdConsole = new CmdConsoleSimulator(appl1Core);

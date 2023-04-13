@@ -35,5 +35,6 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass = 'unibo.Application1'
+    // mainClass = 'unibo.Application1'
+    mainClass = 'unibo.appl1.http.Appl1HTTPSprint3'
 }
