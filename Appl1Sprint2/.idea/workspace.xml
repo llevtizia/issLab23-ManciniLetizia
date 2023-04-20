@@ -5,13 +5,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="0d610c50-0dfc-4bbd-8e46-ad9883a20f5e" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/common/IRobotState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/model/RobotState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/.idea/workspace.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/model/Box.java" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/model/Box.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/model/RoomModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/model/RoomModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../old jars/unibo.basicomm23-1.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/application1/src/main/java/unibo/model/RobotState.java" beforeDir="false" afterPath="$PROJECT_DIR$/application1/src/main/java/unibo/model/RobotState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProducerConsumer/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/../ProducerConsumer/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProducerConsumer/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProducerConsumer/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProducerConsumer/.idea/gradle.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProducerConsumer/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ProducerConsumer/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProducerConsumer/app/.classpath" beforeDir="false" afterPath="$PROJECT_DIR$/../ProducerConsumer/app/.classpath" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProducerConsumer/app/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/../ProducerConsumer/app/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProducerConsumer/app/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/../ProducerConsumer/app/build.gradle" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProducerConsumer/app/src/main/java/ProducerConsumer/ActorNaiveCaller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProducerConsumer/app/src/main/java/ProducerConsumer/ActorNaiveReceiver.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProducerConsumer/app/src/main/java/ProducerConsumer/Consumer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProducerConsumer/app/src/main/java/ProducerConsumer/ConsumerCoapResource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProducerConsumer/app/src/main/java/ProducerConsumer/ConsumerLogic.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProducerConsumer/app/src/main/java/ProducerConsumer/ConsumerMsgHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProducerConsumer/app/src/main/java/ProducerConsumer/MainProdCons.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProducerConsumer/app/src/main/java/ProducerConsumer/ProdConsConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProducerConsumer/app/src/main/java/ProducerConsumer/Producer.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProducerConsumer/app/src/main/java/ProducerConsumer/ProducerCaller.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProducerConsumer/app/src/main/java/ProducerConsumer/ProducerLogic.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProducerConsumer/temp/ProducerConsumer/ActorNaiveCaller.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProducerConsumer/temp/ProducerConsumer/ActorNaiveCaller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProducerConsumer/temp/ProducerConsumer/ActorNaiveReceiver.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProducerConsumer/temp/ProducerConsumer/ActorNaiveReceiver.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProducerConsumer/temp/ProducerConsumer/Consumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProducerConsumer/temp/ProducerConsumer/Consumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProducerConsumer/temp/ProducerConsumer/ConsumerCoapResource.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProducerConsumer/temp/ProducerConsumer/ConsumerCoapResource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProducerConsumer/temp/ProducerConsumer/ConsumerLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProducerConsumer/temp/ProducerConsumer/ConsumerLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProducerConsumer/temp/ProducerConsumer/ConsumerMsgHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProducerConsumer/temp/ProducerConsumer/ConsumerMsgHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProducerConsumer/temp/ProducerConsumer/MainProdCons.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProducerConsumer/temp/ProducerConsumer/MainProdCons.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProducerConsumer/temp/ProducerConsumer/ProdConsConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProducerConsumer/temp/ProducerConsumer/ProdConsConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProducerConsumer/temp/ProducerConsumer/Producer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProducerConsumer/temp/ProducerConsumer/Producer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProducerConsumer/temp/ProducerConsumer/ProducerCaller.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProducerConsumer/temp/ProducerConsumer/ProducerCaller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProducerConsumer/temp/ProducerConsumer/ProducerLogic.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProducerConsumer/temp/ProducerConsumer/ProducerLogic.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../unibolibs/unibo.basicomm23-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../unibolibs/unibo.basicomm23-1.0.jar" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +93,7 @@
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../Appl1Sprint3" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ProducerConsumer" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.0" />

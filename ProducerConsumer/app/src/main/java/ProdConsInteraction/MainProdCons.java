@@ -1,7 +1,9 @@
-package ProducerConsumer;
+package ProdConsInteraction;
+import unibo.actors23.Actor23Utils;
 import unibo.basicomm23.enablers.ServerFactory;
 import unibo.basicomm23.interfaces.IApplMsgHandler;
 import unibo.basicomm23.msg.ProtocolType;
+import unibo.basicomm23.utils.Connection;
 
 /*
 Il sistema deve dare le stesse risposte per interazioni basate su
@@ -10,6 +12,7 @@ Il sistema deve dare le stesse risposte per interazioni basate su
 public class MainProdCons {
 
     public void configureTheSystemFinal(){
+        //Connection.trace   = true;
         ProdConsConfig.setProtocol(ProtocolType.coap);  //tcp udp coap
         //Create the producers
         Producer producer1 = new Producer("prod1");
@@ -29,8 +32,10 @@ public class MainProdCons {
 
         //Sottosistemi di produzione
         ProducerLogic prodLogic = new ProducerLogic();
-        ProducerCaller prod1 = new ProducerCaller("prod1", prodLogic, protocol, hostAddr, ""+port);
-        ProducerCaller prod2 = new ProducerCaller("prod2", prodLogic, protocol, hostAddr, ""+port);
+        ProducerCaller prod1 = new ProducerCaller(
+                "prod1", prodLogic, protocol, hostAddr, ""+port);
+        ProducerCaller prod2 = new ProducerCaller(
+                "prod2", prodLogic, protocol, hostAddr, ""+port);
 
         //Sottosistmea di consumazione
         ConsumerLogic consunerLogic = new ConsumerLogic();
@@ -68,6 +73,8 @@ public class MainProdCons {
         prod2.activate();
     }
     public static void main( String[] args ){
+        System.setProperty(org.slf4j.impl.SimpleLogger.DEFAULT_LOG_LEVEL_KEY, "ERROR");
+
         new MainProdCons().configureTheSystemFinal();
         //new MainProdCons().configureTheSystemVerboseNoCoap();
         //new MainProdCons().configureTheSystemCoapNotYetNecessary();

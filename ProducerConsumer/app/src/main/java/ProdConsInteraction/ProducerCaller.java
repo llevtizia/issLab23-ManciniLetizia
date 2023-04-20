@@ -1,4 +1,4 @@
-package ProducerConsumer;
+package ProdConsInteraction;
 
 
 import unibo.basicomm23.interfaces.IApplMessage;
@@ -21,11 +21,9 @@ public class ProducerCaller extends ActorNaiveCaller {
         for( int i=1; i<=3; i++ ) {
             String d         = prodLogic.getDistance(   );
             IApplMessage req = CommUtils.buildRequest(
-                    name, "distance", d, "consumer"); // il numero viene automaticamente incrememtato
-                                                                // msgType: definito alla creazione (buildRequest)
-            CommUtils.outblue(name + " | sends request " + i + " " + connSupport); // name = il mittente
-            // connSupport definito in ActorNaiveCaller, settato alla connect
-            IApplMessage answer = connSupport.request(req);  //raise exception
+                    name, "distance", d, "consumer");
+            CommUtils.outblue(name + " | sends request " + i + " " + connSupport);
+            IApplMessage answer = this.connSupport.request(req);  //raise exception
             CommUtils.outblue(name + " | answer=" + answer);
             CommUtils.delay(2000);
         }

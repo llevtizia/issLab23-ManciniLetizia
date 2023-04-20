@@ -1,4 +1,4 @@
-package ProducerConsumer;
+package ProdConsInteraction;
 
 import unibo.basicomm23.interfaces.IApplMessage;
 import unibo.basicomm23.interfaces.Interaction;
@@ -19,15 +19,15 @@ private ConsumerLogic consunerLogic;
     @Override
     public void elaborate(IApplMessage message, Interaction conn) {
         try {
-            CommUtils.outgreen(name + " elaborate " + message );
+            CommUtils.outgreen(name + " ConsumerMsgHandler | elaborate " + message );
             String d = message.msgContent();
             String m = consunerLogic.evalDistance( d ) ;
             //CommUtils.outgreen(m);
-            // dovrei fare un check sul tipo di messaggio ricevuto (verificare sia una request)
-            IApplMessage reply = CommUtils.buildReply("consumer", "outdata", m, message.msgSender());
-            // msg.Sender() = destinatario --> reply a chi aveva mandato la request
-            // m = payload
-            conn.reply( reply );
+            if(message.isRequest()){
+                IApplMessage reply = CommUtils.buildReply(
+                        "consumer", "outdata", m, message.msgSender());
+                conn.reply( reply );
+            }  else CommUtils.outred(name + " ConsumerMsgHandler | elaborate ERROR: not a request");
         } catch (Exception e) {
              e.printStackTrace();
         }

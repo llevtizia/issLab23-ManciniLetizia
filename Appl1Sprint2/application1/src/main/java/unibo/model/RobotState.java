@@ -46,6 +46,11 @@ public class RobotState implements IRobotState {
         return this.y;
     }
 
+    public static RobotState getRobotState() {
+        if ( singletonRoomModel == null )
+
+    }
+
     // switch direction
     @Override
     public void turnRight() {
