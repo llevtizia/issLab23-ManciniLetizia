@@ -1,6 +1,7 @@
 package unibo.model;
 
 import unibo.common.IRobotState;
+import unibo.basicomm23.utils.CommUtils;
 
 public class RobotState implements IRobotState {
 
@@ -47,8 +48,10 @@ public class RobotState implements IRobotState {
     }
 
     public static RobotState getRobotState() {
-        if ( singletonRoomModel == null )
-
+        if ( singletonRoomModel == null ) {
+            singletonRoomModel = new RobotState(0, 0, Direction.DOWN);
+        }
+        return singletonRoomModel;
     }
 
     // switch direction
@@ -92,11 +95,24 @@ public class RobotState implements IRobotState {
     public void forward() {
         clearCurrentPos();
         switch(direction) {
-            case UP:  y--; if( y<0 ) y=0; break;
-            case DOWN:  y++; break;
-            case LEFT:  x--; if( x<0 ) x=0;  break;
-            case RIGHT:  x++; break;
-            default: return ;
+            case UP:
+                y--;
+                if ( y < 0 )
+                    y=0;
+                break;
+            case DOWN:
+                y++;
+                break;
+            case LEFT:
+                x--;
+                if( x < 0 )
+                    x=0;
+                break;
+            case RIGHT:
+                x++;
+                break;
+            default:
+                return ;
         }
         changePosInRoom(x,y);
     }
@@ -114,7 +130,7 @@ public class RobotState implements IRobotState {
     }
 
     protected void clearCurrentPos(){
-        //CommUtils.outyellow( "RobotState clearCurrentPos: x=" + x + " y="+y );
+        CommUtils.outyellow( "RobotState clearCurrentPos: x=" + x + " y="+y );
         roomModel.put(x,y, new Box(false,true,false));
     }
 
@@ -127,11 +143,24 @@ public class RobotState implements IRobotState {
     public void backward() {
         clearCurrentPos();
         switch(direction) {
-            case UP:  y++; break;
-            case DOWN:  y--; if( y<0 ) y=0; break;
-            case LEFT:  x++; break;
-            case RIGHT:  x--; if( x<0 ) x=0; break;
-            default: return;//throw new IllegalArgumentException("Direction not valid");
+            case UP:
+                y++;
+                break;
+            case DOWN:
+                y--;
+                if( y<0 )
+                    y=0;
+                break;
+            case LEFT:
+                x++;
+                break;
+            case RIGHT:
+                x--;
+                if( x<0 )
+                    x=0;
+                break;
+            default:
+                return;//throw new IllegalArgumentException("Direction not valid");
         }
         changePosInRoom(x,y);
     }

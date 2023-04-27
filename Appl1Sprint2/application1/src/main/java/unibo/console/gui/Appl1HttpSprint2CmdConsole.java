@@ -21,7 +21,7 @@ public class Appl1HttpSprint2CmdConsole implements Observer {
     public void update(Observable o , Object arg ) {
         try {
             String move = arg.toString();
-            //CommUtils.outgreen("GUI input move=" + move);
+            CommUtils.outgreen("GUI input move=" + move);
             switch( move ){
                 case "start"   : {  if( started ) return;
                     appl = new Appl1CoreSprint2( );

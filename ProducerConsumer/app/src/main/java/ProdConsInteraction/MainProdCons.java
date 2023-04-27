@@ -12,14 +12,15 @@ Il sistema deve dare le stesse risposte per interazioni basate su
 public class MainProdCons {
 
     public void configureTheSystemFinal(){
-        //Connection.trace   = true;
-        ProdConsConfig.setProtocol(ProtocolType.coap);  //tcp udp coap
+        // configurazione del sistema finale
+        Connection.trace   = true;
+        ProdConsConfig.setProtocol(ProtocolType.tcp);  //tcp udp coap
         //Create the producers
         Producer producer1 = new Producer("prod1");
         Producer producer2 = new Producer("prod2");
         //Create the consumer
         Consumer consumer  = new Consumer("consumer");
-        //Activate
+        //Activate: sono tutti thread
         consumer.start();
         producer1.start();
         producer2.start();

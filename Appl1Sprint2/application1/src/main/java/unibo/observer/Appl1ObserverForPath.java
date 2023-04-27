@@ -22,6 +22,10 @@ public class Appl1ObserverForPath extends ApplAbstractObserver {
         moveCmds.add("robot-athomeend");
     }
 
+    public void init(){
+        moveHistory = new Vector<String>();
+    }
+
     @Override
     public void update(String string) {
         if ( moveCmds.contains(string) )
@@ -42,7 +46,7 @@ public class Appl1ObserverForPath extends ApplAbstractObserver {
 
     }
 
-    private void setTerminated( ) {
+    private synchronized void setTerminated( ) {
         CommUtils.outmagenta("         Appl1ObserverForPath: Application TERMINATED");
         applIsTerminated = true;
         notifyAll(); // riattiva getPath
@@ -50,6 +54,9 @@ public class Appl1ObserverForPath extends ApplAbstractObserver {
 
     // getPath
     private String getPathAsCompactString( ) {
+        if( moveHistory.isEmpty() )
+            return "nopath";
+
         String flatPath = moveHistory.toString()
                 .replace("[","")
                 .replace("]","")
@@ -60,7 +67,6 @@ public class Appl1ObserverForPath extends ApplAbstractObserver {
     }
 
     public String getCurrentPath( ){
-
         return getPathAsCompactString( );
     }
 
@@ -82,7 +88,7 @@ public class Appl1ObserverForPath extends ApplAbstractObserver {
     public boolean evalBoundaryDone(){
         String hflat      = getPath();  //bloccante
         String[] splitted = hflat.toString().split("l");
-        //CommUtils.outyellow("Appl1ObserverForpath: splitted[0]=" + splitted[0]);
+        CommUtils.outyellow("Appl1ObserverForpath: splitted[0]=" + splitted[0]);
         boolean boundaryDone = splitted[0].length()==splitted[2].length()
                 && splitted[1].length()==splitted[3].length();
         //the JVM disables assertion validation by default. Insert VM option -enableassertions

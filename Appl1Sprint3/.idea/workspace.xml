@@ -5,16 +5,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="4011ddd3-38b4-4fdb-b957-f899e7c4ec9a" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/main/java/unibo/common/IRobotState.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/main/java/unibo/model/RobotState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2 - old/.idea/workspace.xml" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/main/java/unibo/observer/Appl1ObserverForRoomModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/main/java/unibo/supports/VrobotHLMovesHTTP.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../Appl1Sprint2/sprint3Config.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../Appl1Sprint2/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Appl1Sprint2/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/main/java/unibo/model/Box.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/main/java/unibo/model/Box.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/main/java/unibo/model/RoomModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/main/java/unibo/model/RoomModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/main/java/unibo/basicomm23/http/Appl1CoreSprint2.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/main/java/unibo/basicomm23/http/Appl1CoreSprint2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/main/java/unibo/console/gui/Appl1HttpSprint2CmdConsole.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/main/java/unibo/console/gui/Appl1HttpSprint2CmdConsole.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/main/java/unibo/model/RobotState.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/main/java/unibo/model/RobotState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/main/java/unibo/observer/Appl1ObserverForPath.java" beforeDir="false" afterPath="$PROJECT_DIR$/../Appl1Sprint2/application1/src/main/java/unibo/observer/Appl1ObserverForPath.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../old jars/unibo.basicomm23-1.0.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/../unibolibs/actors23-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../unibolibs/actors23-1.0.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../unibolibs/unibo.basicomm23-1.0.jar" beforeDir="false" afterPath="$PROJECT_DIR$/../unibolibs/unibo.basicomm23-1.0.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProducerConsumer/app/src/main/java/ProdConsActors23/Consumer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProducerConsumer/app/src/main/java/ProdConsActors23/Consumer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProducerConsumer/app/src/main/java/ProdConsActors23/MainProdConsActors23Verbose.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProducerConsumer/app/src/main/java/ProdConsActors23/MainProdConsActors23Verbose.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProducerConsumer/app/src/main/java/ProdConsActors23/Producer.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProducerConsumer/app/src/main/java/ProdConsActors23/Producer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ProducerConsumer/app/src/main/java/ProdConsInteraction/MainProdCons.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ProducerConsumer/app/src/main/java/ProdConsInteraction/MainProdCons.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />

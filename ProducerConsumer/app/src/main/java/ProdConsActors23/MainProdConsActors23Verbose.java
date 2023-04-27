@@ -17,7 +17,8 @@ public class MainProdConsActors23Verbose {
         int port1 = 8123;
         int port2 = 8125;
         CommUtils.outmagenta("MainActors23 CREA I CONTESTI ");
-        ActorContext23 ctx1 = new ActorContext23("ctx1", "localhost", port1);
+        ActorContext23 ctx1 = new ActorContext23("ctx1", "localhost", port1); // contesto ctx1 che riceve su port1
+                                                                                            // riceve le informazioni con tcp (default)
         ActorContext23 ctx2 = new ActorContext23("ctx2", "localhost", port2);
         CommUtils.outmagenta("MainActors23 CREA GLI ATTORI ");
 
