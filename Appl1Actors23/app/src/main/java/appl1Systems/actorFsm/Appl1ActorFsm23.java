@@ -178,7 +178,7 @@ provoca una immediata ripartenza =>
                     Appl1StateObject.robotMustBeAtHome("END",this);
                     CommUtils.outblue("stepfail automsg "+ restart  );
 
-                    autoMsg(restart);
+                    autoMsg(restart); // per ricominciare con un nuovo start
                 }
             }
         }catch(Exception e){ e.printStackTrace();}

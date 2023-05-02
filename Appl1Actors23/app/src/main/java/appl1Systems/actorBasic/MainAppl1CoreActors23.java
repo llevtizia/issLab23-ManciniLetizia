@@ -7,10 +7,10 @@ import unibo.basicomm23.utils.CommUtils;
 public class MainAppl1CoreActors23 {
 
     public void configureTheSystem(){
-        String userDir = System.getProperty("user.dir"); //C:\Didattica2023\issLab2023\Appl1
+        String userDir = System.getProperty("user.dir");
         CommUtils.outblue("Working Directory = " + userDir);
-        //Actor23Utils.trace = true;
-        //Connection.trace   = true;
+        //Actor23Utils.trace = true;    // tracing infrastruttura qak
+        //Connection.trace   = true;    // tracing low level
         Appl1StateObject.setConfigFilePath("app/robotConfig.json");
         Actor23Utils.createContexts("localhost",
            "app/src/main/java/appl1Systems/actorBasic/appl1CoreActor23.pl",
