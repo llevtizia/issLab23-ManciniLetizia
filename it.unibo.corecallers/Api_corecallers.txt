@@ -5,3 +5,6 @@
 {"actor":"resourcecore", "msgType":"request", "sender":"callmock", "msgId":"cmd"}
 {"actor":"sys", "msgType":"event", "sender":"callmock", "msgId":"alarm"}
 {"actor":"resourcecore", "msgType":"eventtransition", "sender":"sys", "msgId":"alarm"}
+{"actor":"resourcecore", "msgType":"request", "sender":"corecaller1", "msgId":"cmd"}
+{"actor":"sys", "msgType":"event", "sender":"corecaller1", "msgId":"alarm"}
+{"actor":"sys", "msgType":"event", "sender":"alarmoffemitter", "msgId":"alarm"}

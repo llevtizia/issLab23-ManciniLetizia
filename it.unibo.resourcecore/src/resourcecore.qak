@@ -13,6 +13,7 @@ QActor resourcecore context ctxresourcecore{
 
   State s0 initial { 
      printCurrentMessage color blue
+     // discardMsg default off
      println("$name waiting ... ") color black
   }
   Transition t0
@@ -45,7 +46,7 @@ QActor resourcecore context ctxresourcecore{
   Goto s0
 } 
 
-/*
+/* 
 QActor callmock context ctxresourcecore{
 	State s0 initial {
       println("callmock READY") color green  
