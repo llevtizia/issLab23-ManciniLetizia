@@ -1,0 +1,3 @@
+{"actor":"resourcecore", "msgType":"eventtransition", "sender":"sys", "msgId":"alarm"}
+{"actor":"resourcecore", "msgType":"eventtransition", "sender":"sys", "msgId":"alarm"}
+{"actor":"resourcecore", "msgType":"eventtransition", "sender":"sys", "msgId":"alarm"}

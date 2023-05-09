@@ -11,20 +11,19 @@ import unibo.basicomm23.utils.CommUtils;
 public class MainProdConsActors23Verbose {
     public void configureTheSystem(){
         System.setProperty(org.slf4j.impl.SimpleLogger.DEFAULT_LOG_LEVEL_KEY, "ERROR");
-        //Actor23Utils.trace=true;
+        Actor23Utils.trace=true;
         CommUtils.aboutThreads(  "MainProdConsActors23Verbose | At START ");
 
         int port1 = 8123;
         int port2 = 8125;
         CommUtils.outmagenta("MainActors23 CREA I CONTESTI ");
-        ActorContext23 ctx1 = new ActorContext23("ctx1", "localhost", port1); // contesto ctx1 che riceve su port1
-                                                                                            // riceve le informazioni con tcp (default)
+        ActorContext23 ctx1 = new ActorContext23("ctx1", "localhost", port1);
         ActorContext23 ctx2 = new ActorContext23("ctx2", "localhost", port2);
         CommUtils.outmagenta("MainActors23 CREA GLI ATTORI ");
 
         Producer prod1 = new Producer("prod1",ctx1);
         Consumer consumer = new Consumer("consumer", ctx1); //Autostart
-        Producer prod2 = new Producer("prod3",ctx2);
+        Producer prod2 = new Producer("prod2",ctx2);
         Producer prod3 = new Producer("prod3",ctx2);
 
         ctx1.addActor(prod1);
@@ -34,14 +33,15 @@ public class MainProdConsActors23Verbose {
 
         CommUtils.outmagenta("MainActors23 FISSA GLI ACTOR REMOTI");
         ctx1.setActorAsRemote("prod2",""+port2, "localhost", ProtocolType.tcp);
-        ctx2.setActorAsRemote("consumer",""+port1, "localhost", ProtocolType.tcp);
         ctx1.setActorAsRemote("prod3",""+port2, "localhost", ProtocolType.tcp);
+        ctx2.setActorAsRemote("consumer",""+port1, "localhost", ProtocolType.tcp);
 
         ctx1.showActorNames();
         ctx2.showActorNames();
         CommUtils.aboutThreads(  "MainProdConsActors23Verbose | BEFORE ACTIVATE ");
         Actor23Utils.activateActorsInContext(ctx1);
-        ctx2.activateLocalActors();
+        //tx2.activateLocalActors();
+        Actor23Utils.activateActorsInContext(ctx2);
         CommUtils.aboutThreads(  "MainProdConsActors23Verbose | AFTER ACTIVATE ");
 
     }

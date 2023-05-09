@@ -28,12 +28,13 @@ public abstract class ActorBasic23 extends CoapResource implements IActor23 {
 
     protected Vector<ActorBasic23> subscribers = new Vector<ActorBasic23>();
     protected String actorResourceRep = "unknown";
+    protected final String startSysCmdId = "sysstartcmd";
 
     public ActorBasic23(String name, ActorContext23 ctx ){
         super(name);
         this.name    = this.getName();
         this.ctx     = ctx;
-        autoStartMsg = CommUtils.buildDispatch(name, "startcmd", "start", name);
+        autoStartMsg = CommUtils.buildDispatch(name, startSysCmdId, "start", name);
         super.setObservable(true);  //DO NOT FORGET
     }
 
@@ -95,6 +96,9 @@ public abstract class ActorBasic23 extends CoapResource implements IActor23 {
     public String getContextName(){
         return ctx.name;
     }
+    public ActorContext23 getContext(){
+        return ctx ;
+    }
 
 /*
  --------------------------------------------
@@ -103,7 +107,8 @@ public abstract class ActorBasic23 extends CoapResource implements IActor23 {
 */
 
     public void subscribeLocalActor( String actorName){
-        if( Actor23Utils.trace) CommUtils.outblue(name + " | subscribeLocalActor " + actorName);
+        //if( Actor23Utils.trace)
+            CommUtils.outblack(name + " | subscribeLocalActor " + actorName);
         ActorBasic23 actor = ctx.getActor(actorName);
         if( actor != null ) actor.subscribers.add(this);
         else CommUtils.outred("subscribeLocalActor ERROR:" + actorName);
@@ -114,7 +119,7 @@ public abstract class ActorBasic23 extends CoapResource implements IActor23 {
     public void unsubscribe( ActorBasic23 actor){
         actor.subscribers.remove(this);
     }
-    public void emitLocalStreamEvent( IApplMessage event ){
+    protected void emitLocalStreamEvent( IApplMessage event ){
         if( Actor23Utils.trace)  CommUtils.outyellow(name + " | emitLocalStreamEvent " + event
                 + " numOfSubscribers=" + subscribers.size() ) ;
         subscribers.forEach( (actor) -> {
@@ -187,10 +192,18 @@ public abstract class ActorBasic23 extends CoapResource implements IActor23 {
         }
     }
 
-    protected  void emit( IApplMessage msg   )   {
+    protected  void emit( IApplMessage msg   )   {  //per consentire l'emissione da supporti
         if( msg.isEvent()){
             ctx.propagateEventToProxies(msg);
             ctx.propagateEventToActors(msg); //per gli attori locali
+        }else{
+            CommUtils.outred(  " | emit ERROR: msg is not an event:  " + msg.msgType() );
+        }
+    }
+    protected  void emitLocal( IApplMessage msg   )   {  //per consentire l'emissione da supporti
+        if( msg.isEvent()){
+            //ctx.propagateEventToProxies(msg);
+                    ctx.propagateEventToActors(msg); //per gli attori locali
         }else{
             CommUtils.outred(  " | emit ERROR: msg is not an event:  " + msg.msgType() );
         }

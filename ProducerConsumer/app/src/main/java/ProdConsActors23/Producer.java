@@ -10,16 +10,17 @@ public class Producer extends ActorBasic23 {
 
     public Producer(String name, ActorContext23 ctx) {
         super(name, ctx);
-        autostart = true; // parte in maniera automatica
+        autostart = true;
     }
 
     @Override
-    protected void elabMsg(IApplMessage msg) throws Exception {
-        //CommUtils.outgray(name + " | elabMsg " + msg + " in:" + Thread.currentThread().getName());
-        if( msg.msgId().equals("startcmd") && msg.msgContent().equals("start")){
-            String d = prodLogic.getDistance(); // costruisco la richiesta
+    protected void elabMsg(IApplMessage msg)   {
+        //CommUtils.outmagenta(name + " | elabMsg " + msg + " in:" + Thread.currentThread().getName());
+        if( msg.msgId().equals("sysstartcmd") && msg.msgContent().equals("start")){
+            String d = prodLogic.getDistance();
             //CommUtils.delay(3000); //wait before producing ..
-            IApplMessage infoMsg  = CommUtils.buildRequest(name, "info", d, "consumer"); // name = il nome dell'attore
+            IApplMessage infoMsg  =
+                    CommUtils.buildRequest(name, "info", d, "consumer");
             CommUtils.outblue(name + " | SENDS " + infoMsg + " in:" + Thread.currentThread().getName());
             request(infoMsg);
             return;

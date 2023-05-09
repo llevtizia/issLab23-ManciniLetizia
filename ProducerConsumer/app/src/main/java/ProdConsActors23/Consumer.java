@@ -20,7 +20,7 @@ public class Consumer extends ActorBasic23 {
             IApplMessage replyMsg = CommUtils.buildReply(
                     "consumer", "outdata", answer, msg.msgSender());
             CommUtils.outgreen(name + " | reply " + replyMsg + " in:" + Thread.currentThread().getName());
-            reply( replyMsg, msg ); // con anche la richiesta origunale
+            reply( replyMsg, msg );
         }  else CommUtils.outred(name + " | elaborate ERROR: not a request");
     }
 }
