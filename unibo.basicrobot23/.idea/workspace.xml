@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4c3c3110-410d-4cbf-9548-c0723381ed26" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/unibo.basicrobot23.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/basicrobotarch.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" beforeDir="false" afterPath="$PROJECT_DIR$/.settings/org.eclipse.jdt.core.prefs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Api_basicrobot23.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Api_basicrobot23.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/jupyter/.ipynb_checkpoints/Archbasicrobot23-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/jupyter/.ipynb_checkpoints/Untitled-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/jupyter/.ipynb_checkpoints/qakbasicrobotcallerMQTT-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/jupyter/.ipynb_checkpoints/qakbasicrobotcallerTCP-checkpoint.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/jupyter/Archbasicrobot23.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/jupyter/Untitled.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/jupyter/basicrobot23arch.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/jupyter/boundarywalker23arch.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/jupyter/qakbasicrobotcallerMQTT.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/jupyter/qakbasicrobotcallerTCP.ipynb" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/jupyter/qakicons/codedQActor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/jupyter/qakicons/externalQActor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/jupyter/qakicons/symActor.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/jupyter/qakicons/symActorSmall.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/jupyter/qakicons/system.PNG" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/robotMbot/ISensorObserverFromArduino.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/robotMbot/JSSCSerialComm.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/robotMbot/SerialPortConnSupport.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/robotMbot/globalTimer.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/robotMbot/logDevice.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/robotMbot/mbotSupport.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/robotMbot/robotDataSourceArduino.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/robotMbot/webcam.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/robotNano/CodedQaSonar.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/robotNano/Motors.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/robotNano/SonarAlone.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/robotNano/legonanoMotors.c" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/robotNano/nanoMotorDriveA.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/robotNano/nanoMotorDriveB.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/robotNano/nanoSupport.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/robotNano/nanoSupportSam.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/robotNano/sonarHCSR04Support.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/robotNano/sonarHCSR04SupportActor.kt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/basicrobot.qak" beforeDir="false" afterPath="$PROJECT_DIR$/src/basicrobot.qak" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeStyleSettingsInfer">
+    <option name="done" value="true" />
+  </component>
+  <component name="ExternalProjectsData">
+    <projectState path="$PROJECT_DIR$">
+      <ProjectState />
+    </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <projects_view>
+          <tree_state>
+            <expand />
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectCodeStyleSettingsMigration">
+    <option name="version" value="1" />
+  </component>
+  <component name="ProjectId" id="2A9HDQROGNgSpSp61HzK3RkUYw9" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="ASKED_ADD_EXTERNAL_FILES" value="true" />
+    <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.27586207" />
+    <property name="settings.editor.selected.configurable" value="project.propVCSSupport.Mappings" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Didattica2023\issLab2023\unibo.basicrobot23\resourcestodo" />
+      <recent name="C:\Didattica2023\issLab2023\unibo.basicrobot23" />
+      <recent name="C:\Didattica2023\issLab2023\unibo.basicrobot23\resources\jupyter" />
+      <recent name="C:\Didattica2023\issLab2023\unibo.basicrobot23\qakicons" />
+      <recent name="C:\Didattica2023\issLab2023\unibo.basicrobot23\resources\console" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Didattica2023\issLab2023\unibo.basicrobot23\resourcestodo" />
+    </key>
+    <key name="CopyKotlinDeclarationDialog.RECENTS_KEY">
+      <recent name="uniborobots" />
+      <recent name="robotVirtual" />
+    </key>
+  </component>
+  <component name="RunManager" selected="Application.WsServer">
+    <configuration name="WsServer" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="uniborobots.WsServer" />
+      <module name="unibo.basicrobot23.main" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="uniborobots.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConsoleGuiSimpleKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <module name="unibo.basicrobot23.main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="consoles.ConsoleGuiSimpleKt" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ConsoleGuiStepsKt" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <module name="unibo.basicrobot.main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="consoles.ConsoleGuiStepsKt" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainCtxbasicrobotKt (1)" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <module name="unibo.basicrobot.main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="it.unibo.ctxbasicrobot.MainCtxbasicrobotKt" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MainCtxbasicrobotKt (2)" type="JetRunConfigurationType" temporary="true" nameIsGenerated="true">
+      <module name="unibo.basicrobot23.main" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" value="it.unibo.ctxbasicrobot.MainCtxbasicrobotKt" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <module name="unibo.basicrobot.test" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <module name="unibo.basicrobot.test" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <option name="filePath" />
+      <option name="vmParameters" />
+      <option name="alternativeJrePath" />
+      <option name="programParameters" />
+      <option name="passParentEnvs" value="true" />
+      <option name="workingDirectory" />
+      <option name="isAlternativeJrePathEnabled" value="false" />
+      <option name="VM_PARAMETERS" />
+      <option name="PROGRAM_PARAMETERS" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="MAIN_CLASS_NAME" />
+      <option name="WORKING_DIRECTORY" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4c3c3110-410d-4cbf-9548-c0723381ed26" name="Default Changelist" comment="" />
+      <created>1654414760896</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1654414760896</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+    <option name="oldMeFiltersMigrated" value="true" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
+    <ignored-roots>
+      <path value="$PROJECT_DIR$/../.." />
+    </ignored-roots>
+  </component>
+</project>
