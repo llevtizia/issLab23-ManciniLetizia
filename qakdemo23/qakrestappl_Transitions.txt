@@ -1,0 +1,3 @@
+{"actor":"demo0", "msgType":"dispatch", "curstate":"s1", "nextstate":"s2", "msgId":"msg1"}
+{"actor":"demo0", "msgType":"dispatch", "curstate":"s1", "nextstate":"s3", "msgId":"msg2"}
+{"actor":"demo0", "msgType":"dispatch", "curstate":"s2", "nextstate":"s3", "msgId":"msg2"}
