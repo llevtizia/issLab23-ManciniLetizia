@@ -44,6 +44,7 @@ public class VrobotHLMovesActors23 extends ApplAbstractObserver implements IVrob
 
     @Override
     public void move( String cmd ) throws Exception{
+        //CommUtils.outred("VrobotHLMovesActors23 move " + cmd);
         if( cmd.equals("w") ) forward( 5000 );
         else if( cmd.equals("s") ) backward( 5000 );
         else if( cmd.equals("a") || cmd.equals("l")) turnLeft(  );
@@ -55,6 +56,7 @@ public class VrobotHLMovesActors23 extends ApplAbstractObserver implements IVrob
 
     @Override
     public void turnLeft() throws Exception {
+        //CommUtils.outred("turnLeft");
         sendSynchToWenv(VrobotMsgs.turnleftcmd);
     }
 
@@ -72,14 +74,14 @@ public class VrobotHLMovesActors23 extends ApplAbstractObserver implements IVrob
     @Override
     public void backward(int time) throws Exception {
         startTimer();
-        wsCommSupport.forward(VrobotMsgs.forwardcmd.replace("TIME", "" + time));
+        wsCommSupport.forward(VrobotMsgs.backwardcmd.replace("TIME", "" + time));
     }
 
     @Override
     public void halt() throws Exception {
         CommUtils.outgreen("     VrobotHLMovesActors23 | halt");
         wsCommSupport.forward(VrobotMsgs.haltcmd);
-        CommUtils.delay(150); //wait for halt completion since halt on ws does not send answer
+        CommUtils.delay(50); //wait for halt completion since halt on ws does not send answer
         //CommUtils.outgreen("     VrobotHLMovesActors23 | halt done " + moveResult );
     }
 // Observer part
@@ -126,14 +128,14 @@ public class VrobotHLMovesActors23 extends ApplAbstractObserver implements IVrob
             }
             if (info.contains("_notallowed")) {
                 CommUtils.outred("     VrobotHLMovesActors23 | update WARNING!!! _notallowed unexpected in " + info);
+                halt();
                 return;
             }
             if (jsonObj.get("sonarName") != null) {
                 long d = (long) jsonObj.get("distance") ;
                 IApplMessage sonarEvent = CommUtils.buildEvent(
                         "vrhlsprt","sonardata","'"+"sonar(" +d + " )"+"'");
-                //Imviare un msg ad owner perchè generi un evento a favore di SonarObserverActor23
-
+                //Imviare un msg ad owner perchè generi un evento a favore di sonarobs/engager
                 MsgUtil.emitLocalEvent(sonarEvent,owner,null);  //percepito da sonarobs/engager
                 return;
             }

@@ -1,0 +1,4 @@
+System robotpos
+
+Context ctxrobotpos ip [host="localhost" port=8111]
+Context ctxbasicrobot ip [host="127.0.0.1" port=8888]

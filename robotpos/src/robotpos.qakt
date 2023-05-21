@@ -1,0 +1,11 @@
+System robotpos
+
+Context ctxrobotpos ip [host="localhost" port=8111]
+// Struttura: quanti nodi? => anche il basic robot
+Context ctxbasicrobot ip [host="127.0.0.1" port=8020]
+
+QActor worker context ctxrobotpos {
+	State s0 initial {
+		printCurrentMessage
+	}
+}

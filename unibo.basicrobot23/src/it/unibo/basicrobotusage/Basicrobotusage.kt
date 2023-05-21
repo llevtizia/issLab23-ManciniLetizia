@@ -18,19 +18,20 @@ class Basicrobotusage ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( 
 	}
 	override fun getBody() : (ActorBasicFsm.() -> Unit){
 		val interruptedStateTransitions = mutableListOf<Transition>()
+		 val Path    = "\"[w, w, l, w, w, w, w]\"" //Come quello restituito da doplan
+				val MyName = name 
 		return { //this:ActionBasciFsm
 				state("ss0") { //this:State
 					action { //it:State
 						CommUtils.outblack("$name in ${currentState.stateName} | $currentMsg | ${Thread.currentThread().getName()} n=${Thread.activeCount()}")
 						 	   
-						delay(1000) 
-						request("engage", "engage(basicrobotusage)" ,"basicrobot" )  
+						request("engage", "engage(MyName)" ,"basicrobot" )  
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
-					 transition(edgeName="t08",targetState="dowork",cond=whenReply("engagedone"))
+					 transition(edgeName="t016",targetState="testdoplan",cond=whenReply("engagedone"))
 				}	 
 				state("dowork") { //this:State
 					action { //it:State
@@ -40,8 +41,8 @@ class Basicrobotusage ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( 
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
-					 transition(edgeName="t09",targetState="handleStepDone",cond=whenReply("stepdone"))
-					transition(edgeName="t010",targetState="handleStepFail",cond=whenReply("stepfailed"))
+					 transition(edgeName="t017",targetState="handleStepDone",cond=whenReply("stepdone"))
+					transition(edgeName="t018",targetState="handleStepFail",cond=whenReply("stepfailed"))
 				}	 
 				state("handleStepDone") { //this:State
 					action { //it:State
@@ -58,6 +59,28 @@ class Basicrobotusage ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( 
 					action { //it:State
 						CommUtils.outblack("$name in ${currentState.stateName} | $currentMsg | ${Thread.currentThread().getName()} n=${Thread.activeCount()}")
 						 	   
+						//genTimer( actor, state )
+					}
+					//After Lenzi Aug2002
+					sysaction { //it:State
+					}	 	 
+				}	 
+				state("testdoplan") { //this:State
+					action { //it:State
+						request("doplan", "doplan($Path,$MyName,345)" ,"basicrobot" )  
+						//genTimer( actor, state )
+					}
+					//After Lenzi Aug2002
+					sysaction { //it:State
+					}	 	 
+					 transition(edgeName="t019",targetState="testdoplanEnd",cond=whenReply("doplandone"))
+					transition(edgeName="t020",targetState="testdoplanEnd",cond=whenReply("doplanfailed"))
+				}	 
+				state("testdoplanEnd") { //this:State
+					action { //it:State
+						CommUtils.outmagenta("$name in ${currentState.stateName} | $currentMsg | ${Thread.currentThread().getName()} n=${Thread.activeCount()}")
+						 	   
+						forward("disengage", "disengage($MyName)" ,"basicrobot" ) 
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002
