@@ -19,4 +19,11 @@ eventedgeattr = {
 with Diagram('robotposArch', show=False, outformat='png', graph_attr=graphattr) as diag:
   with Cluster('env'):
      sys = Custom('','./qakicons/system.png')
+     with Cluster('ctxrobotpos', graph_attr=nodeattr):
+          worker=Custom('worker','./qakicons/symActorSmall.png')
+     with Cluster('ctxbasicrobot', graph_attr=nodeattr):
+          basicrobot=Custom('basicrobot(ext)','./qakicons/externalQActor.png')
+     worker >> Edge(color='magenta', style='solid', xlabel='engage', fontcolor='magenta') >> basicrobot
+     worker >> Edge(color='blue', style='solid', xlabel='disengage', fontcolor='blue') >> basicrobot
+     worker >> Edge(color='magenta', style='solid', xlabel='doplan', fontcolor='magenta') >> basicrobot
 diag

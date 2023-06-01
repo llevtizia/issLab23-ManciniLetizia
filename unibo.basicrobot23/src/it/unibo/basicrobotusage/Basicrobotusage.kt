@@ -18,7 +18,7 @@ class Basicrobotusage ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( 
 	}
 	override fun getBody() : (ActorBasicFsm.() -> Unit){
 		val interruptedStateTransitions = mutableListOf<Transition>()
-		 val Path    = "\"[w, w, l, w, w, w, w]\"" //Come quello restituito da doplan
+		 val Path    = "\"[w, w, l, w, w, w, w]\"" //Come quello restituito da dopath
 				val MyName = name 
 		return { //this:ActionBasciFsm
 				state("ss0") { //this:State
@@ -31,7 +31,7 @@ class Basicrobotusage ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( 
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
-					 transition(edgeName="t016",targetState="testdoplan",cond=whenReply("engagedone"))
+					 transition(edgeName="t016",targetState="testDopath",cond=whenReply("engagedone"))
 				}	 
 				state("dowork") { //this:State
 					action { //it:State
@@ -65,18 +65,18 @@ class Basicrobotusage ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( 
 					sysaction { //it:State
 					}	 	 
 				}	 
-				state("testdoplan") { //this:State
+				state("testDopath") { //this:State
 					action { //it:State
-						request("doplan", "doplan($Path,$MyName,345)" ,"basicrobot" )  
+						request("dopath", "dopath($Path,$MyName,345)" ,"basicrobot" )  
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
-					 transition(edgeName="t019",targetState="testdoplanEnd",cond=whenReply("doplandone"))
-					transition(edgeName="t020",targetState="testdoplanEnd",cond=whenReply("doplanfailed"))
+					 transition(edgeName="t019",targetState="testDopathEnd",cond=whenReply("dopathdone"))
+					transition(edgeName="t020",targetState="testDopathEnd",cond=whenReply("dopathfailed"))
 				}	 
-				state("testdoplanEnd") { //this:State
+				state("testDopathEnd") { //this:State
 					action { //it:State
 						CommUtils.outmagenta("$name in ${currentState.stateName} | $currentMsg | ${Thread.currentThread().getName()} n=${Thread.activeCount()}")
 						 	   

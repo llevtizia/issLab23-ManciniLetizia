@@ -26,7 +26,7 @@ class Basicrobot ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name,
 		  var CurrentMove   = "unkknown"
 		  var StepSynchRes  = false
 		  var Owner         = "unkknown"
-		  val planner       = unibo.planner23.Planner23Util() 
+		  //val planner       = unibo.planner23.Planner23Util() 
 		  
 		  fun checkOwner() : Boolean {
 		  	if( currentMsg.isEvent()  ) return true
@@ -42,13 +42,18 @@ class Basicrobot ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name,
 						delegate("engage", "engager") 
 						delegate("disengage", "engager") 
 						delegate("doplan", "planexec") 
-						CommUtils.outblack("basicrobot | STARTS")
+						delegate("setrobotstate", "robotposendosimbiotico") 
+						delegate("moverobot", "robotposendosimbiotico") 
+						delay(1000) 
+						CommUtils.outblack("basicrobot | STARTING ... ")
 						uniborobots.robotSupport.create(myself ,"basicrobotConfig.json" )
 						 RobotType = uniborobots.robotSupport.robotKind  
+						delay(2000) 
 						uniborobots.robotSupport.move( "a"  )
 						uniborobots.robotSupport.move( "d"  )
 						updateResourceRep( "basicrobot(started)"  
 						)
+						delay(1000) 
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002
@@ -58,7 +63,7 @@ class Basicrobot ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name,
 				}	 
 				state("waitForOwner") { //this:State
 					action { //it:State
-						CommUtils.outblack("basicrobot  | waiting for engaged/disengaged ...  ")
+						CommUtils.outblack("basicrobot  | Waiting engage request ...  ")
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002
@@ -85,6 +90,7 @@ class Basicrobot ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name,
 					transition(edgeName="t04",targetState="execcmd",cond=whenDispatch("cmd"))
 					transition(edgeName="t05",targetState="endwork",cond=whenDispatch("end"))
 					transition(edgeName="t06",targetState="waitForOwner",cond=whenDispatch("disengaged"))
+					transition(edgeName="t07",targetState="work",cond=whenDispatch("engaged"))
 				}	 
 				state("execcmd") { //this:State
 					action { //it:State
@@ -151,16 +157,16 @@ class Basicrobot ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name,
 						CommUtils.outcyan("$name in ${currentState.stateName} | $currentMsg | ${Thread.currentThread().getName()} n=${Thread.activeCount()}")
 						 	   
 						uniborobots.robotSupport.move( "h"  )
-						 var TunedDuration   = StepTime - ((Duration * 0.90)).toLong()    
-						if(  TunedDuration > 10  
-						 ){CommUtils.outblack("basicrobot | $StepTime stepFail duration=$Duration  TunedDuration=$TunedDuration")
-						uniborobots.robotSupport.move( "s"  )
+						 var TunedDuration   = StepTime - ((Duration * 0.80)).toLong()    
+						CommUtils.outmagenta("basicrobot | stepKo $StepTime  duration=$Duration  TunedDuration=$TunedDuration")
+						if(  TunedDuration > 30  
+						 ){uniborobots.robotSupport.move( "s"  )
 						delay(TunedDuration)
 						uniborobots.robotSupport.move( "h"  )
-						}
 						updateResourceRep( "stepFail($Duration)"  
 						)
 						delay(300) 
+						}
 						answer("step", "stepfailed", "stepfailed($Duration,obst)"   )  
 						//genTimer( actor, state )
 					}

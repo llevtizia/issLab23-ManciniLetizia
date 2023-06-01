@@ -1,0 +1,2 @@
+{"actor":"radar", "msgType":"dispatch", "curstate":"s0", "nextstate":"showPosition", "msgId":"polar"}
+{"actor":"led", "msgType":"dispatch", "curstate":"s0", "nextstate":"handleLed", "msgId":"ledCmd"}

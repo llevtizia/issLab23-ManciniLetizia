@@ -18,16 +18,143 @@ class Worker ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name, sco
 	}
 	override fun getBody() : (ActorBasicFsm.() -> Unit){
 		val interruptedStateTransitions = mutableListOf<Transition>()
+		 val planner = unibo.planner23.Planner23Util()
+			    //val MapName = "mapEmpty23"
+			    val MapName = "mapCompleteWithObst23ok"
+			    val MyName    = name //upcase var
+			    val StepTime  = 330
+				var Plan      = ""	
+				var TargetX   = ""
+				var TargetY   = ""
 		return { //this:ActionBasciFsm
 				state("s0") { //this:State
 					action { //it:State
-						CommUtils.outcyan("$name in ${currentState.stateName} | $currentMsg | ${Thread.currentThread().getName()} n=${Thread.activeCount()}")
+						CommUtils.outblue("$name in ${currentState.stateName} | $currentMsg | ${Thread.currentThread().getName()} n=${Thread.activeCount()}")
 						 	   
+						request("engage", "engage(worker)" ,"basicrobot" )  
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
+					 transition(edgeName="t00",targetState="initPlanner",cond=whenReply("engagedone"))
+					transition(edgeName="t01",targetState="waitrobotfree",cond=whenReply("engagerefused"))
+				}	 
+				state("endofwork") { //this:State
+					action { //it:State
+						CommUtils.outblack("$name ENDS")
+						forward("disengage", "disengage($MyName)" ,"basicrobot" ) 
+						//genTimer( actor, state )
+					}
+					//After Lenzi Aug2002
+					sysaction { //it:State
+					}	 	 
+				}	 
+				state("waitrobotfree") { //this:State
+					action { //it:State
+						CommUtils.outblue("$name: Sorry, the robot is already engaged.")
+						//genTimer( actor, state )
+					}
+					//After Lenzi Aug2002
+					sysaction { //it:State
+					}	 	 
+				}	 
+				state("initPlanner") { //this:State
+					action { //it:State
+						CommUtils.outblue("$name loading $MapName")
+						 planner.initAI()  
+								   planner.loadRoomMap(MapName) 
+								   planner.showMap()
+						//genTimer( actor, state )
+					}
+					//After Lenzi Aug2002
+					sysaction { //it:State
+					}	 	 
+					 transition( edgeName="goto",targetState="waitclientrequest", cond=doswitch() )
+				}	 
+				state("waitclientrequest") { //this:State
+					action { //it:State
+						CommUtils.outblack("$name | waiting the client request...")
+						//genTimer( actor, state )
+					}
+					//After Lenzi Aug2002
+					sysaction { //it:State
+				 	 		stateTimer = TimerActor("timer_waitclientrequest", 
+				 	 					  scope, context!!, "local_tout_worker_waitclientrequest", 600000.toLong() )
+					}	 	 
+					 transition(edgeName="t02",targetState="endofwork",cond=whenTimeout("local_tout_worker_waitclientrequest"))   
+					transition(edgeName="t03",targetState="elabClientRequest",cond=whenRequest("moverobot"))
+				}	 
+				state("elabClientRequest") { //this:State
+					action { //it:State
+						CommUtils.outblue("$name in ${currentState.stateName} | $currentMsg | ${Thread.currentThread().getName()} n=${Thread.activeCount()}")
+						 	   
+						if( checkMsgContent( Term.createTerm("moverobot(TARGETX,TARGETY)"), Term.createTerm("moverobot(X,Y)"), 
+						                        currentMsg.msgContent()) ) { //set msgArgList
+								 TargetX = payloadArg(0)
+											   TargetY = payloadArg(1)
+						}
+						//genTimer( actor, state )
+					}
+					//After Lenzi Aug2002
+					sysaction { //it:State
+					}	 	 
+					 transition( edgeName="goto",targetState="planTheRobotmoves", cond=doswitch() )
+				}	 
+				state("planTheRobotmoves") { //this:State
+					action { //it:State
+						CommUtils.outblue("$name in ${currentState.stateName} | $currentMsg | ${Thread.currentThread().getName()} n=${Thread.activeCount()}")
+						 	   
+						  
+								   Plan = planner.planForGoal(""+TargetX,""+TargetY).toString()
+								   println(Plan)
+								   Plan = planner.planCompacted(Plan) 
+								   CommUtils.outblue("name | Plan to reach pos: $Plan")
+						request("doplan", "doplan($Plan,worker,$StepTime)" ,"basicrobot" )  
+						//genTimer( actor, state )
+					}
+					//After Lenzi Aug2002
+					sysaction { //it:State
+					}	 	 
+					 transition(edgeName="t04",targetState="endok",cond=whenReply("doplandone"))
+					transition(edgeName="t05",targetState="endko",cond=whenReply("doplanfailed"))
+				}	 
+				state("endok") { //this:State
+					action { //it:State
+						CommUtils.outblue("pos reached")
+						 planner.doPathOnMap(Plan)  
+						 planner.showCurrentRobotState();  
+						updateResourceRep( planner.robotOnMap()  
+						)
+						answer("moverobot", "moverobotdone", "moverobotdone(ok)"   )  
+						//genTimer( actor, state )
+					}
+					//After Lenzi Aug2002
+					sysaction { //it:State
+					}	 	 
+					 transition( edgeName="goto",targetState="waitclientrequest", cond=doswitch() )
+				}	 
+				state("endko") { //this:State
+					action { //it:State
+						if( checkMsgContent( Term.createTerm("doplanfailed(ARG)"), Term.createTerm("doplanfailed(ARG)"), 
+						                        currentMsg.msgContent()) ) { //set msgArgList
+								 val PathTodo = payloadArg(0)  
+								CommUtils.outred("pos NOT reached - PathTodo = ${PathTodo} vs. $Plan")
+								CommUtils.outblue("${Plan.substring(0, Plan.lastIndexOf(PathTodo))}")
+								   var PathDone = Plan.substring(0, Plan.lastIndexOf(PathTodo))
+												 if( PathDone == "" ) PathDone ="n"				 
+												 else planner.doPathOnMap(PathDone)
+								updateResourceRep( planner.robotOnMap()  
+								)
+								 planner.showCurrentRobotState();  
+								answer("moverobot", "moverobotfailed", "moverobotfailed($PathDone,$PathTodo)"   )  
+						}
+						//genTimer( actor, state )
+					}
+					//After Lenzi Aug2002
+					sysaction { //it:State
+					}	 	 
+					 transition( edgeName="goto",targetState="waitclientrequest", cond=doswitch() )
 				}	 
 			}
 		}

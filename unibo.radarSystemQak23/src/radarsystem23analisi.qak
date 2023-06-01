@@ -1,0 +1,69 @@
+System radarsystem23analisi 
+
+// tipi di messaggi
+Event sonardata 	: distance(V)
+Dispatch ledCmd 	: ledCmd(ONOFF)
+Dispatch polar 		: polar(D, A)
+
+// tre componenti: radar, sonar, led
+Context ctxprototipo0 ip [host="localhost" port=8088] 
+
+// modello dell'analisi del problema
+QActor sonar context ctxprototipo0 {
+	State s0 initial {
+		println("sonar starts") color red
+	}
+	Goto work
+	
+	State work {
+		emit sonardata: distance(25)
+	}
+}
+
+QActor radar context ctxprototipo0 {
+	State s0 initial {
+		println("radar starts") color blue
+	}
+	Transition t0 whenMsg polar -> showPosition
+	
+	State showPosition {
+		printCurrentMessage color blue
+		onMsg( polar: polar(D, A) ) {
+			println("polar coordinates = ${payloadArg(0)}, ${payloadArg(1)}") color blue
+		}
+	}
+}
+
+QActor led context ctxprototipo0 {
+	State s0 initial {
+		println("led starts") color green
+	}
+	Transition t0 whenMsg ledCmd -> handleLed
+	
+	State handleLed {
+		printCurrentMessage color green
+		onMsg( ledCmd : ledCmd(ONOFF) ) {
+			println("led state = ${payloadArg(0)} ") color green
+		}
+	}
+}
+
+//  controller per business logic
+QActor controller context ctxprototipo0 {
+	State s0 initial {
+		println("controller starts") color yellow
+	}
+	Transition t0 whenEvent sonardata -> handleEvent
+	
+	State handleEvent {
+		printCurrentMessage color yellow
+		onMsg( sonardata: distance(V) ) {
+			[# var Distance    = payloadArg(0) #]
+			println("distance = $Distance") color yellow
+			forward radar 	-m polar 	: polar($Distance, 0)
+		}
+		
+		forward led 	-m ledCmd 	: ledCmd(ON)
+	}
+}
+

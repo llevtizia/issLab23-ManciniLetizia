@@ -1,0 +1,26 @@
+System sonarqak23 
+
+// come comunico con il basic robot?
+// elenco di messaggi, formato, protocollo  
+Request engage        : engage(OWNER)	
+Reply   engagedone    : engagedone(ARG)
+Reply   engagerefused : engagerefused(ARG)
+
+Dispatch disengage    : disengage(ARG)
+Dispatch engaged      : engaged(ARG)
+Dispatch disengaged   : disengage(ARG)
+
+//Endosimbiosi di robotpos
+Request moverobot    :  moverobot(TARGETX, TARGETY)
+Reply moverobotdone  :  moverobotok(ARG)
+Reply moverobotfailed:  moverobotfailed(PLANDONE, PLANTODO)
+// per fermare il sonar
+Event alarm           : alarm(X)
+
+// il basic robot è un qak esterno
+Context ctxsonarqak23 ip [host="localhost" port=8020]  
+Context ctxbasicrobot ip [host="127.0.0.1" port=8020]
+
+// componenti 
+
+

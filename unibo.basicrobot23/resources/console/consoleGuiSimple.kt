@@ -1,4 +1,4 @@
-package consoles
+package console
 
 import connQak.ConnectionType
 import it.unibo.`is`.interfaces.IObserver

@@ -1,0 +1,38 @@
+System robotpos
+
+Request engage        : engage(ARG)	
+Reply   engagedone    : engagedone(ARG)
+Reply   engagerefused : engagerefused(ARG)
+
+
+Context ctxrobotpos ip [host="localhost" port=8111]
+// Struttura: quanti nodi? => anche il basicrobot
+Context ctxbasicrobot ip [host="127.0.0.1" port=8090]
+
+ExternalQActor basicrobot context ctxbasicrobot
+
+QActor worker context ctxrobotpos {
+	[# val planner = unibo.planner23.Planner23Util() #]
+	
+	State so initial {
+		printCurrentMessage
+		request basicrobot -m engage : engage( worker )
+	}
+	//Goto work
+	Transition t0 whenReply engagedone 		-> work
+				  whenReply engagerefused 	-> waitforrobotfree
+	/*
+	 * Uso il planner per gestire il robot
+	 */
+	State work {
+		printCurrentMessage
+		[# planner.initAI() 
+			planner.loadRoomMap("mapEmpty23")
+			planner.showMap()
+		#]
+	}
+	
+	State waitforrobotfree {
+		// al momento mi risponde sempre woek
+	}
+}

@@ -1,0 +1,2 @@
+{"actor":"radargui", "msgType":"eventtransition", "sender":"sys", "msgId":"polar"}
+{"actor":"radargui", "msgType":"eventtransition", "sender":"sys", "msgId":"sonardata"}
