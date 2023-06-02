@@ -19,8 +19,19 @@ Event alarm           : alarm(X)
 
 // il basic robot è un qak esterno
 Context ctxsonarqak23 ip [host="localhost" port=8020]  
-Context ctxbasicrobot ip [host="127.0.0.1" port=8020]
+Context ctxbasicrobot ip [host="127.0.0.1" port=8021]
 
 // componenti 
+QActor sonar23 context ctxsonarqak23 {
+	State s0 initial {
+		printCurrentMessage
+		// TODO: modello logico del sonar
+		// Ho bisogno di un dispositivo generatore di dati
+	}
+}
 
-
+QActor appl context ctxsonarqak23 {
+	State s0 initial {
+		printCurrentMessage
+	}
+}
