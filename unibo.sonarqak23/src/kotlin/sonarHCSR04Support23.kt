@@ -22,11 +22,11 @@ class sonarHCSR04Support23 ( name : String ) : ActorBasic( name ) {
 	//var coapSupport = javacode.CoapSupport("coap://localhost:8028","ctxsonarresource/sonarresource")
 	init{
 		//autostart
-		runBlocking{  autoMsg("simulatorstart","do") }
+		runBlocking{  autoMsg("sonarstart","do") }
 	}
     override suspend fun actorBody(msg : IApplMessage){
  		//println("$tt $name | received  $msg "  )  //RICEVE GLI EVENTI!!!
-		if( msg.msgId() == "simulatorstart"){
+		if( msg.msgId() == "sonarstart"){
 			//println("sonarHCSR04Support23 STARTING") //AVOID SINCE pipe ...
 			try{
 				//val p  = Runtime.getRuntime().exec("sudo ./SonarAlone")
@@ -41,7 +41,8 @@ class sonarHCSR04Support23 ( name : String ) : ActorBasic( name ) {
 		
 	suspend fun doRead(   ){
  		var counter = 0
-		GlobalScope.launch{	//to allow message handling
+		//GlobalScope.launch{	//to allow message handling
+		scope.launch{
 		while( true ){
 				var data = reader.readLine()
 				//CommUtils.outyellow("$name with python: data = $data"   )
@@ -51,7 +52,7 @@ class sonarHCSR04Support23 ( name : String ) : ActorBasic( name ) {
 						val v  = vd.toInt()
 						if( v <= 100 ){	//A first filter ...
 							val m1 = "distance( ${v} )"
-							val event = MsgUtil.buildEvent( "sonarHCSR04Support","sonar",m1)
+							val event = MsgUtil.buildEvent( "sonarHCSR04Support","sonardistance",m1)
 							//emit( event )  //should be propagated also to the remote resource
 							emitLocalStreamEvent( event )		//not propagated to remote actors
 							CommUtils.outyellow("sonarHCSR04Support23 doRead emits ${counter++}: $event "   )
