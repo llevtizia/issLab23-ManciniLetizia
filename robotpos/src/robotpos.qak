@@ -118,11 +118,11 @@ QActor worker context ctxrobotpos{
 	}
 	Goto waitclientrequest
 }
-
+ 
 /*
  * client (for prototype0 testing)
  */
-/*  
+
 QActor client context ctxrobotpos{
 	State s0 initial{
 		[# CommUtils.waitTheUser("$name | hit 1CR") #]
@@ -137,4 +137,3 @@ QActor client context ctxrobotpos{
 	}
 }
  
-*/

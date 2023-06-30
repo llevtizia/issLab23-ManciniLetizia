@@ -1,5 +1,4 @@
 import kotlinx.coroutines.*
-import unibo.basicomm23.utils.CommUtils
 
 
 /*
@@ -55,7 +54,6 @@ fun doDemo( input : Int ){
         6 ->  demoTodo =  { runBlockThreadInGlobalScope() }
         7 ->  demoTodo =  { runBlockingLaunchJoin() }
         8 ->  demoTodo =  { runBlockingLaunchNoJoin() }
-        9 ->  demoTodo =  { scopeDemo() }
         10 ->  demoTodo =  { runInNewScope() }
         11 ->  demoTodo =  { manyThreads() }
         12 ->  demoTodo =  { runBlocking{ manyCoroutines()  } }
@@ -222,9 +220,9 @@ fun doJobAsynchCps( n: Int  ){
 //Coroutines
 var thcounter=0
 fun runBlockThread( delay : Long = 1000L ){
-    CommUtils.outyellow("thread  : ${curThread()} thcounter=${thcounter}")
     Thread.sleep(delay)
     thcounter++  //thcounter = thcounter + 1 NON ATOMICA
+    //println("thread ends : ${curThread()} thcounter=${thcounter}")
 }
 fun runBlockThreadInGlobalScope(){
     GlobalScope.launch{ runBlockThread() }
@@ -251,25 +249,23 @@ fun runBlockingLaunchNoJoin(){	//user-option 7
     println("Ends runBlockingLaunchNoJoin ${curThread()}")
 }
 
-fun scopeDemo (){
+fun scopeDemo (){	//user-option 3
     thcounter=0
     val scope = CoroutineScope( Dispatchers.Default )
-    CommUtils.outmagenta( "scopeDemo ${scope.coroutineContext}" )
-    runBlocking {
-        val job = scope.launch {
-            CommUtils.outblue("start coroutine 1 ${curThread()}")
-            runBlockThread(2000)
-            //delay( 2000 )
-            CommUtils.outblue("end coroutine 1 ${curThread()}")
-        }
-    CommUtils.outcyan("scopeDemo job $job")
-        //job.join() should be called only from a coroutine or another suspend function
-        scope.launch {
-            job.join()
-            CommUtils.outgreen("start coroutine 2 ${curThread()}")
-            CommUtils.outgreen("end coroutine 2 ${curThread()}")
-        }
-    }//runBlocking
+    println( scope.coroutineContext )
+    val job = scope.launch{
+        println("start coroutine 1 ${curThread()}")
+        runBlockThread(3000)
+        println("end coroutine 1 ${curThread()}")
+    }
+    //job.join()
+    // should be called only from a coroutine or another suspend function
+    scope.launch{
+        println("start coroutine 2 ${curThread()}")
+        job.join()
+        println("end coroutine 2 ${curThread()}")
+    }
+
 }
 
 fun workTodo(i : Int) { println("hello $i ${curThread()}") }

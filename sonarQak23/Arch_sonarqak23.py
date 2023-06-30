@@ -21,5 +21,9 @@ with Diagram('sonarqak23Arch', show=False, outformat='png', graph_attr=graphattr
      sys = Custom('','./qakicons/system.png')
      with Cluster('ctxsonarqak23', graph_attr=nodeattr):
           sonar23=Custom('sonar23','./qakicons/symActorSmall.png')
-          appl=Custom('appl','./qakicons/symActorSmall.png')
+          sonar=Custom('sonar(coded)','./qakicons/codedQActor.png')
+          datacleaner=Custom('datacleaner(coded)','./qakicons/codedQActor.png')
+          distancefilter=Custom('distancefilter(coded)','./qakicons/codedQActor.png')
+     sys >> Edge(color='red', style='dashed', xlabel='sonardata', fontcolor='red') >> sonar23
+     sys >> Edge(color='red', style='dashed', xlabel='obstacle', fontcolor='red') >> sonar23
 diag
