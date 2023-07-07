@@ -4,6 +4,7 @@ package uniborobots
  */
 
 import it.unibo.kactor.ActorBasic
+import kotlinx.coroutines.delay
 import org.json.simple.JSONObject
 import org.json.simple.parser.JSONParser
 import robotVirtual.VrobotHLMovesActors23
@@ -42,7 +43,7 @@ object robotSupport{
 				vr = VrobotHLMovesActors23( hostAddr,  owner )
 				//vr.setTrace(true)
 			}
-			/*
+
   			"realnano"   ->  {
 				robotNano.nanoSupport.create( owner )
  				val realsonar = robotNano.sonarHCSR04SupportActor("realsonar")
@@ -50,6 +51,7 @@ object robotSupport{
 				owner.context!!.addInternalActor(realsonar)  
   				println("		--- realnano robotSupport | has created the realsonar")
 			}
+
 			"realmbot" -> {
 				robotMbot.mbotSupport.create(owner, robotPort)
 				/*
@@ -57,7 +59,7 @@ object robotSupport{
 				//Context injection
 				owner.context!!.addInternalActor(realsonar)  
   				println("		--- realmbot robotSupport | has created the realsonar")*/
-			}*/
+			}
  			else -> println( "		--- robotSupport | robot $robotKind unknown" )
  		}
 	}
@@ -74,8 +76,8 @@ object robotSupport{
 		when( robotKind ){
 			//"mockrobot"  -> { robotMock.mockrobotSupport.move( cmd ) 					  }
 			"virtual"    -> { vr.move(  cmd ) 	  }
-  			//"realnano"   -> { robotNano.nanoSupport.move( cmd)	}
-            //"realmbot"   -> { robotMbot.mbotSupport.move( cmd )	}
+  			"realnano"   -> { robotNano.nanoSupport.move( cmd)	}
+            "realmbot"   -> { robotMbot.mbotSupport.move( cmd )	}
 			else         -> println( "		--- robotSupport: move| robot unknown")
 		}		
 	}
@@ -84,8 +86,13 @@ object robotSupport{
 		//println("robotSupport move cmd=$cmd robotKind=$robotKind" )
 		when( robotKind ){
 			"virtual"    -> {  return vr.step(  time  ) 	  } //synch
-			//"realnano"   -> { return false	}   //TODO
-			//"realmbot"   -> { return false 	}	//TODO
+			"realnano"   -> {
+				robotNano.nanoSupport.move( "w" )
+				Thread.sleep(time)
+				robotNano.nanoSupport.move( "h" )
+				return true
+			}   //TODO
+			"realmbot"   -> { return false 	}	//TODO
 			else         -> {
 				println("		--- robotSupport: dostep | robot unknown")
 				return false
@@ -96,8 +103,8 @@ object robotSupport{
 		when( robotKind ){
 			"mockrobot"  -> {  					                  }
 			"virtual"    -> { /* robotVirtual.virtualrobotSupport23.terminate(  ) */	  }
- 			//"realmbot"   -> { /* mbotSupport.terminate(  ) */	}
- 			//"realnano"   -> { robotNano.nanoSupport.terminate( )	}
+ 			"realmbot"   -> { /* mbotSupport.terminate(  ) */	}
+ 			"realnano"   -> { robotNano.nanoSupport.terminate( )	}
 			else         -> println( "		--- robotSupport | robot unknown")
 		}		
 		

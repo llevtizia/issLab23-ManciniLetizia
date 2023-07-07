@@ -1,0 +1,2 @@
+{"actor":"serviceaccessgui", "msgType":"dispatch", "curstate":"work", "nextstate":"doObserve", "msgId":"coapUpdate"}
+{"actor":"transporttrolley", "msgType":"dispatch", "curstate":"waitCmd", "nextstate":"moveToIndoor", "msgId":"gomoveToIndoor"}

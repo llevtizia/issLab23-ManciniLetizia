@@ -1,0 +1,152 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+    <link rel="stylesheet" href="styles/style.css">
+    <link rel="stylesheet" type="text/css" href="html/_static/pygments.css" />
+    
+    <head>
+        <title>Sprint0-temaFinale</title>
+    </head>
+    
+    <body>
+        <div id="top">
+            <h1>LABORATORIO DI INGEGNERIA DEI SISTEMI SOFTWARE <font size="5"></font> </h1>
+        </div>  
+
+        <!-- INTRODUCTION -->
+        <div class="body"> 
+        <h2>Introduction</h2>
+        <div class="slide1">
+            <b>Goal Sprint 0</b>: definire un modello logico del sistema
+        </div>
+
+        <br>
+        Lo scopo dello SPRINT0 è 
+        <ul>
+            <li><b>formalizzare</b> i singoli termini del testo (usando un qualche linguaggio di programmazione e/o con modelli)</li>
+            <li>fornire una <b>prima visione di insieme del sistema</b> da realizzare</li>
+        </ul> 
+        Lo SPRINT0 dovrebbe concludersi fornendo un <ks>modello</ks> delle macro-parti del sistema, evidenziando 
+        <ul>
+            <li>quali componenti sono forniti dal committente (ad esempio DDRrobot, Sonar, etc.) </li>
+            <li>e quelli che invece bisogna sviluppare.</li>
+        </ul>
+        I messaggi che questi componenti si scambiano potrebbero essere veri e propri <b>requisiti</b> ma anche 
+        solo indicativi di chi dovrà inviare informazione e di chi dovrà riceverla.
+        
+        <!-- REQUIREMENTS -->
+        <h2>Requirements</h2>
+        <div class="remark">
+        <a href="html/TemaFinale23.html#temafinale23">Requisiti dati dal committente</a>
+        </div>
+
+        <!-- REQUIREMENTS ANALYSIS -->
+        <h2>Requirement analysis</h2>
+        <div class="remark">
+        <table>
+            <tr>
+                <td class="key">Service area</td>
+                <td>modellata con una mappa, suddivisa in celle quadrate di lato RD</td>
+            </tr>
+            <tr>
+                <td class="key">INDOOR port</td>
+                <td>area di servizio dove viene scaricato il carico da depositare nella Cold Room</td>
+            </tr>
+            <tr>
+                <td class="key">Cold Room</td>
+                <td>container con capacità massima di <b>MAXW</b> kg</td>
+            </tr>
+            <tr>
+                <td class="key">Transport trolley</td>
+                <td>un DDR robot modellato come un quadrato con lato <b>RD</b>. Posizionato inizialmente in <ks>HOME</ks></td>.
+            </tr>
+            <tr>
+                <td class="key">Service Access GUI</td>
+                <td>interfaccia utente che consente di visualizzare il peso dei materiali attualmente nella Cold Room e mandare la richiesta di 
+                    depositare ulteriori <b>FW</b> kg. Se la richiesta viene accettata, l'utente ottiene un ticket valido per un tempo <b>TICKETTIME</b>
+                </td>
+            </tr>
+            <tr>
+                <td class="key">Service Status GUI</td>
+                <td>interfaccia utente che consente ad un <i>service manager</i> di visualizzare lo stato del servizio</td>
+            </tr>
+            <tr>
+                <td class="key">Sonar</td>
+                <td>dispositivo connesso ad un Raspberry Pi. Misura la distanza: quando è <i>minore</i> del limite dato <b>DLIMIT</b>, il <km>transport
+                    trolley</km> si ferma; riparte quando la distanza è maggiore di <b>DLIMIT</b>                    
+                </td>
+            </tr>
+            <tr>
+                <td class="key">Led</td>
+                <td>dispositivo connesso ad un Raspberry Pi. Il Led è <b>spento</b> quando il trolley è in <ks>HOME</ks>, <b>lampeggia</b>
+                    quando il trolley si sta muovendo ed è <b>acceso</b> quando il trolley è fermo.                   
+                </td>
+            </tr>
+        </table>
+
+        <br>
+        <p>
+            <div class="slide1">User story</div></p>
+            <a href="html/TemaFinale23.html#service-users-story">User story data dal committente</a>
+        <br>
+        <p>
+        <ol>
+            <li>il sistema è costituito da più entità</li>
+            <li>il sistema è distribuito e le entità comunicano tra loro con diversi tipi di messaggi</li>
+            <li>ogni entità ha un proprio comportamento e stato</li>
+        </ol>
+        </p>
+        <p>
+            
+            Per realizzare il goal, scegliamo di utilizzare il linguaggio di modellazione <a href="html/QakActors23.html#qactor23-introduzione">Qak</a>,
+             dato dalla software house. Il metamodello consente di catturare gli aspetti essenziali del sistema e offre l'astrazione
+             <ks>QActor</ks> per rappresentare le entità come componenti autonomi ed indipendenti, 
+            
+        </p>
+          
+        </div>
+
+        <h2>Problem analysis</h2>
+        
+
+        <h2>Test plans</h2> 
+
+
+        <h2>Project</h2> 
+        
+        </div>
+
+        <h2>Testing</h2> 
+        
+
+        <h2>Deployment</h2> 
+
+        
+        <h2>Maintenance</h2> 
+        
+        <!-- USEFUL
+        <table style="width:100%" border="1">
+        <tr>
+        <td style="width:50%">
+        </td>
+        <td></td>
+        </tr>
+        </table>
+        -->
+                    
+        <br/><br/> 	
+        </div>  
+
+        <div style="background-color:rgba(86, 56, 253, 0.9); width:60%;text-align:left;color:white">
+        <ul>
+            <li>By Letizia Mancini</li>
+            <li>email: letizia.mancini3@studio.unibo.it </li>
+            <li>GIT repo: https://github.com/llevtizia/issLab23-ManciniLetizia</li>
+            <li>matricola: 0000926656</li>
+        </ul>
+
+
+        <img src="html/_images/picture.jpg" alt="picture" width="15%" height="15%" margin-left="2%">
+
+        </div> 
+    </body>
+</html>

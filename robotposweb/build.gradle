@@ -1,6 +1,6 @@
 plugins {
 	id 'java'
-	id 'org.springframework.boot' version '2.7.12'
+	id 'org.springframework.boot' version '2.7.12' // 2.7.13-SNAPSHOT
 	id 'io.spring.dependency-management' version '1.0.15.RELEASE'
 	id 'application'
 }
@@ -10,6 +10,8 @@ sourceCompatibility = '11'
 
 repositories {
 	mavenCentral()
+	maven { url 'https://repo.spring.io/milestone' }
+	maven { url 'https://repo.spring.io/snapshot' }
 	flatDir {   dirs '../unibolibs'	 }
 }
 dependencies {

@@ -1,0 +1,181 @@
+/* 
+ * ================================================================================
+ * cold storage service
+ * ================================================================================
+ */  
+   
+System coldstorageservice 
+  
+// messaggi per il basic robot
+// --------------------------------------------------------------------------------
+Request engage        	: engage( OWNER, STEPTIME )	
+Reply   engagedone    	: engagedone( ARG )
+Reply   engagerefused 	: engagerefused( ARG )
+
+Dispatch disengage    	: disengage( ARG )
+//Dispatch engaged      : engaged(ARG)
+//Dispatch disengaged   : disengage(ARG)
+
+Dispatch cmd       		: cmd( MOVE )      
+Dispatch end       		: end( ARG )   
+
+Request step       		: step( TIME )	
+Reply stepdone     		: stepdone( V )  
+Reply stepfailed   		: stepfailed( DURATION, CAUSE )
+
+Request  doplan   		: doplan( PATH, OWNER, STEPTIME )
+Reply doplandone  		: doplandone( ARG ) 
+Reply doplanfailed  	: doplanfailed( ARG )
+
+//Endosimbiosi di robotpos
+Request moverobot    	:  moverobot( TARGETX, TARGETY )
+Reply moverobotdone  	:  moverobotok( ARG )
+Reply moverobotfailed	:  moverobotfailed( PLANDONE, PLANTODO )
+
+Dispatch setrobotstate	: setpos( X,Y,D )
+Dispatch setdirection	: dir( D )
+//Dispatch setsteptime:setsteptime(T)
+
+Request getrobotstate	: getrobotstate( ARG )
+Reply robotstate		: robotstate( POS, DIR )
+// --------------------------------------------------------------------------------
+
+// messaggi applicativi
+// --------------------------------------------------------------------------------
+Request storerequest	: storerequest( kg )
+Reply loadaccepted		: loadaccepted(_)
+Reply loadrejected		: loadrejected(_)
+
+Dispatch gomoveToIndoor	: gomoveToIndoor(_)
+
+Dispatch coapUpdate		: coapUpdate( SOURCE, ARG )
+// --------------------------------------------------------------------------------
+
+
+Context ctxcoldstorageservice ip [ host="localhost" port=9990 ]
+Context ctxbasicrobot ip [ host="127.0.01" port=8020 ]
+
+// actors
+ExternalQActor basicrobot context ctxbasicrobot
+
+
+// service access gui
+QActor serviceaccessgui context ctxcoldstorageservice {
+	State s0 initial {
+		println("serviceaccessgui START") color blue
+		// observeResource basicrobot
+		// observeResource transporttrolley
+	}
+	Goto work
+	
+	State work {
+		
+	}
+	Transition t0 whenMsg coapUpdate -> doObserve
+	
+	State doObserve {
+		printCurrentMessage color magenta
+		
+		onMsg( coapUpdate : coapUpdate( basicrobot, ARG ) ) {
+			println("$name - from basicrobot: ${payloadArg(1)}") color yellow
+		}
+		onMsg( coapUpdate : coapUpdate( transporttrolley, ARG ) ) {
+			println("$name - from transporttrolley: ${payloadArg(1)}") color yellow
+		}
+	}
+	Goto work
+}
+
+// fridge
+QActor fridgeservice context ctxcoldstorageservice {
+	State s0 initial {
+		println("fridgeservice START") color blue
+	}
+	Goto waitRequest
+	
+	State waitRequest {
+		println("	waiting for requests  ") color green
+	}
+	Transition t0 whenRequest storerequest -> handleRequest
+	
+	State handleRequest {
+		printCurrentMessage color magenta
+		
+		onMsg( storerequest : storerequest( kg ) ) {
+			println("handle request ${payloadArg(0)}") color yellow
+		}
+	}
+	Goto waitRequest
+}
+
+// trolley
+QActor transporttrolley context ctxcoldstorageservice {
+	State s0 initial {
+		println("$name START, engage basicrobot ") color blue
+		request basicrobot -m engage : engage( transporttrolley, 330 )
+	}
+	Transition t0 whenReply engagedone -> waitCmd
+	
+	State waitCmd {
+		println("$name waiting for commands 	") color green
+		updateResource [# "$name(waiting) " #]
+		[# CommUtils.waitTheUser("$name wait cmd. Please HIT ") #]
+		forward transporttrolley -m gomoveToIndoor : gomoveToIndoor( 26 )
+	}
+	Transition t0 whenMsg gomoveToIndoor -> moveToIndoor
+	
+	State moveToIndoor {
+		println("$name moveToIndoor ") color green
+		request basicrobot -m moverobot : moverobot( 0, 4 )
+	}
+	Transition t0 whenReply moverobotdone -> loadTheCharge
+	
+	State loadTheCharge {
+		updateResource [# "$name(loading) " #]
+		println("$name loading charge ... ") color green
+		// delay 2000
+		[# CommUtils.waitTheUser("$name loading charge. Please HIT ") #]
+	}
+	Goto moveToColdRoom
+	
+	State moveToColdRoom {
+		println("$name moveToColdRoom") color green
+		request basicrobot -m moverobot : moverobot( 4, 3 )
+		// delay 2000
+	}
+	Transition t0 whenReply moverobotdone -> storeTheCharge
+	
+	State storeTheCharge {
+		updateResource [# "$name(storing) " #]
+		println("$name storing charge ... ") color green
+		// delay 2000
+		[# CommUtils.waitTheUser("$name loading charge. Please HIT ") #]
+	}
+	Goto moveToHome
+	
+	State moveToHome {
+		println("$name moveToHome ") color green
+		request basicrobot -m moverobot : moverobot( 0, 0 )
+	} 
+	Transition t0 whenReply moverobotdone -> trolleyAtHome
+	
+	State trolleyAtHome {
+		println("$name trolley at home ") color green
+		forward basicrobot -m setdirection : dir( down )
+		updateResource [# "$name(athome) " #]
+		delay 2000 // to avoid interruption
+		forward basicrobot -m disengage : disengage( transporttrolley )
+		delay 1000
+		[# System.exit(0) #]
+	} 
+}
+
+
+
+
+
+
+
+
+
+
