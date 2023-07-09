@@ -21,18 +21,18 @@ class Transporttrolley ( name: String, scope: CoroutineScope  ) : ActorBasicFsm(
 		return { //this:ActionBasciFsm
 				state("s0") { //this:State
 					action { //it:State
-						CommUtils.outblue("$name START, engage basicrobot ")
+						CommUtils.outyellow("$name START, engage basicrobot ")
 						request("engage", "engage(transporttrolley,330)" ,"basicrobot" )  
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
-					 transition(edgeName="t02",targetState="waitCmd",cond=whenReply("engagedone"))
+					 transition(edgeName="t01",targetState="waitCmd",cond=whenReply("engagedone"))
 				}	 
 				state("waitCmd") { //this:State
 					action { //it:State
-						CommUtils.outgreen("$name waiting for commands 	")
+						CommUtils.outgreen("$name | waiting for commands ...	")
 						updateResourceRep( "$name(waiting) "  
 						)
 						 CommUtils.waitTheUser("$name wait cmd. Please HIT ")  
@@ -42,7 +42,7 @@ class Transporttrolley ( name: String, scope: CoroutineScope  ) : ActorBasicFsm(
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
-					 transition(edgeName="t03",targetState="moveToIndoor",cond=whenDispatch("gomoveToIndoor"))
+					 transition(edgeName="t02",targetState="moveToIndoor",cond=whenDispatch("gomoveToIndoor"))
 				}	 
 				state("moveToIndoor") { //this:State
 					action { //it:State
@@ -53,7 +53,7 @@ class Transporttrolley ( name: String, scope: CoroutineScope  ) : ActorBasicFsm(
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
-					 transition(edgeName="t04",targetState="loadTheCharge",cond=whenReply("moverobotdone"))
+					 transition(edgeName="t03",targetState="loadTheCharge",cond=whenReply("moverobotdone"))
 				}	 
 				state("loadTheCharge") { //this:State
 					action { //it:State
@@ -77,7 +77,7 @@ class Transporttrolley ( name: String, scope: CoroutineScope  ) : ActorBasicFsm(
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
-					 transition(edgeName="t05",targetState="storeTheCharge",cond=whenReply("moverobotdone"))
+					 transition(edgeName="t04",targetState="storeTheCharge",cond=whenReply("moverobotdone"))
 				}	 
 				state("storeTheCharge") { //this:State
 					action { //it:State
@@ -101,7 +101,7 @@ class Transporttrolley ( name: String, scope: CoroutineScope  ) : ActorBasicFsm(
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
-					 transition(edgeName="t06",targetState="trolleyAtHome",cond=whenReply("moverobotdone"))
+					 transition(edgeName="t05",targetState="trolleyAtHome",cond=whenReply("moverobotdone"))
 				}	 
 				state("trolleyAtHome") { //this:State
 					action { //it:State

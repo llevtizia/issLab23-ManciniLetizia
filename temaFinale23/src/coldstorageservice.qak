@@ -85,7 +85,7 @@ QActor serviceaccessgui context ctxcoldstorageservice {
 	}
 	Goto work
 }
-
+/* 
 // fridge
 QActor fridgeservice context ctxcoldstorageservice {
 	State s0 initial {
@@ -107,17 +107,17 @@ QActor fridgeservice context ctxcoldstorageservice {
 	}
 	Goto waitRequest
 }
-
+*/
 // trolley
 QActor transporttrolley context ctxcoldstorageservice {
 	State s0 initial {
-		println("$name START, engage basicrobot ") color blue
+		println("$name START, engage basicrobot ") color yellow
 		request basicrobot -m engage : engage( transporttrolley, 330 )
 	}
 	Transition t0 whenReply engagedone -> waitCmd
 	
 	State waitCmd {
-		println("$name waiting for commands 	") color green
+		println("$name | waiting for commands ...	") color green
 		updateResource [# "$name(waiting) " #]
 		[# CommUtils.waitTheUser("$name wait cmd. Please HIT ") #]
 		forward transporttrolley -m gomoveToIndoor : gomoveToIndoor( 26 )
@@ -152,7 +152,7 @@ QActor transporttrolley context ctxcoldstorageservice {
 		[# CommUtils.waitTheUser("$name loading charge. Please HIT ") #]
 	}
 	Goto moveToHome
-	
+	  
 	State moveToHome {
 		println("$name moveToHome ") color green
 		request basicrobot -m moverobot : moverobot( 0, 0 )

@@ -18,11 +18,47 @@ class Appl ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name, scope
 	}
 	override fun getBody() : (ActorBasicFsm.() -> Unit){
 		val interruptedStateTransitions = mutableListOf<Transition>()
+		 val MyName = name  
 		return { //this:ActionBasciFsm
 				state("s0") { //this:State
 					action { //it:State
-						CommUtils.outcyan("$name in ${currentState.stateName} | $currentMsg | ${Thread.currentThread().getName()} n=${Thread.activeCount()}")
+						CommUtils.outblue("appl | start")
+						request("engage", "engage($MyName)" ,"basicrobot" )  
+						//genTimer( actor, state )
+					}
+					//After Lenzi Aug2002
+					sysaction { //it:State
+					}	 	 
+					 transition(edgeName="t03",targetState="work",cond=whenReply("engagedone"))
+				}	 
+				state("work") { //this:State
+					action { //it:State
+						CommUtils.outblue("appl | move the robot")
+						request("moverobot", "moverobot(6,4)" ,"basicrobot" )  
+						//genTimer( actor, state )
+					}
+					//After Lenzi Aug2002
+					sysaction { //it:State
+					}	 	 
+					 transition(edgeName="t04",targetState="posreached",cond=whenReply("moverobotdone"))
+					transition(edgeName="t05",targetState="posfailed",cond=whenReply("moverobotfailed"))
+				}	 
+				state("posreached") { //this:State
+					action { //it:State
+						CommUtils.outblue("$name in ${currentState.stateName} | $currentMsg | ${Thread.currentThread().getName()} n=${Thread.activeCount()}")
 						 	   
+						forward("disengage", "disengage($MyName)" ,"basicrobot" ) 
+						//genTimer( actor, state )
+					}
+					//After Lenzi Aug2002
+					sysaction { //it:State
+					}	 	 
+				}	 
+				state("posfailed") { //this:State
+					action { //it:State
+						CommUtils.outred("$name in ${currentState.stateName} | $currentMsg | ${Thread.currentThread().getName()} n=${Thread.activeCount()}")
+						 	   
+						forward("disengage", "disengage($MyName)" ,"basicrobot" ) 
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002

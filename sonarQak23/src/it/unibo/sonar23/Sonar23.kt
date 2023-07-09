@@ -18,10 +18,11 @@ class Sonar23 ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name, sc
 	}
 	override fun getBody() : (ActorBasicFsm.() -> Unit){
 		val interruptedStateTransitions = mutableListOf<Transition>()
+		 var  ApplAlso = sysUtil.getActor("appl") != null  
 		return { //this:ActionBasciFsm
 				state("s0") { //this:State
 					action { //it:State
-						CommUtils.outblack("sonar23 | start")
+						CommUtils.outblack("sonar23 | start with appl: $ApplAlso")
 						 subscribeToLocalActor("distancefilter").subscribeToLocalActor("datacleaner").subscribeToLocalActor("sonar")  
 						//genTimer( actor, state )
 					}
@@ -32,6 +33,8 @@ class Sonar23 ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name, sc
 				}	 
 				state("work") { //this:State
 					action { //it:State
+						updateResourceRep( "sonar23 waiting ..."  
+						)
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002
@@ -44,6 +47,8 @@ class Sonar23 ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name, sc
 					action { //it:State
 						CommUtils.outcyan("$name in ${currentState.stateName} | $currentMsg | ${Thread.currentThread().getName()} n=${Thread.activeCount()}")
 						 	   
+						updateResourceRep( "sonar23 handles $currentMsg"  
+						)
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002
@@ -56,13 +61,26 @@ class Sonar23 ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( name, sc
 						if( checkMsgContent( Term.createTerm("obstacle(D)"), Term.createTerm("obstacle(D)"), 
 						                        currentMsg.msgContent()) ) { //set msgArgList
 								CommUtils.outmagenta("$name handleobstacle ALARM ${payloadArg(0)}")
+								emit("alarm", "alarm(obstacle)" ) 
 						}
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
-					 transition( edgeName="goto",targetState="work", cond=doswitch() )
+					 transition( edgeName="goto",targetState="sonar23", cond=doswitchGuarded({ ApplAlso == true  
+					}) )
+					transition( edgeName="goto",targetState="work", cond=doswitchGuarded({! ( ApplAlso == true  
+					) }) )
+				}	 
+				state("sonar23") { //this:State
+					action { //it:State
+						CommUtils.outblack("$name BYE")
+						//genTimer( actor, state )
+					}
+					//After Lenzi Aug2002
+					sysaction { //it:State
+					}	 	 
 				}	 
 			}
 		}
