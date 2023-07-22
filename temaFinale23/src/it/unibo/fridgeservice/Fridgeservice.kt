@@ -37,7 +37,7 @@ class Fridgeservice ( name: String, scope: CoroutineScope  ) : ActorBasicFsm( na
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
-					 transition(edgeName="t01",targetState="handleRequest",cond=whenRequest("storerequest"))
+					 transition(edgeName="t04",targetState="handleRequest",cond=whenRequest("storerequest"))
 				}	 
 				state("handleRequest") { //this:State
 					action { //it:State

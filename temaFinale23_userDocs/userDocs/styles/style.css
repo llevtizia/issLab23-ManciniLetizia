@@ -77,10 +77,11 @@ ks {
 }
 
 kc {
-	font-family: "Arial";
-	font-weight: bold;
-    color: #008000	;
-	font-size: 90%;
+    color: #41b3a3	;
+}
+
+kb {
+    color: #3778c2
 }
 
 pre {
@@ -89,6 +90,7 @@ pre {
 	background-color: #f5f5f5;
 	border: 1.5px solid silver;
 	padding: 5px;
+    border-radius: 10px;
 }
 
 m {
@@ -187,7 +189,7 @@ ol, ul, li {
 
 
 img {
-	border: 1.5px solid #d5f2ed
+	border: 0.5px solid #d5f2ed
 }
 
 
@@ -202,10 +204,38 @@ div.imagedesc{
 }
 
 .slide1 {
-    background-color: #cbfebc;
+    background-color: #bcc9fe;
     width: 100%;
     border-radius: 10px;
-    font-size: 20px; 
+    font-size: 20px;
+    font-weight: bolder;
     line-height: 1.5;
-    padding: 3px
+    padding: 3px;
+}
+
+
+.column {
+    display: inline-block;
+    width: 45%; /* Regola la larghezza delle colonne a tuo piacimento */
+    vertical-align: top; /* Per allineare il contenuto in cima alla colonna */
+  }
+
+.usecasestable {
+    border: 1px solid black;
+    border-collapse: collapse;
+    width: 100%;
+    font-weight: lighter;
+    padding: 15px;
+    background-color: #effffc;
+}
+
+.model-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+kw {
+	color: #e5051f;
+	font-weight: bold;
 }

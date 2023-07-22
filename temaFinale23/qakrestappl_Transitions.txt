@@ -1,2 +1,2 @@
-{"actor":"serviceaccessgui", "msgType":"dispatch", "curstate":"work", "nextstate":"doObserve", "msgId":"coapUpdate"}
-{"actor":"transporttrolley", "msgType":"dispatch", "curstate":"waitCmd", "nextstate":"moveToIndoor", "msgId":"gomoveToIndoor"}
+{"actor":"serviceaccessgui", "msgType":"dispatch", "curstate":"unloading", "nextstate":"waitRequest", "msgId":"chargeTaken"}
+{"actor":"coldstorageservice", "msgType":"dispatch", "curstate":"validate", "nextstate":"waitRequest", "msgId":"chargeTaken"}

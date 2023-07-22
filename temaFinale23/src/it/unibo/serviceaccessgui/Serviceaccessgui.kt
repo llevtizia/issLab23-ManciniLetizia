@@ -27,35 +27,80 @@ class Serviceaccessgui ( name: String, scope: CoroutineScope  ) : ActorBasicFsm(
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
-					 transition( edgeName="goto",targetState="work", cond=doswitch() )
+					 transition( edgeName="goto",targetState="waitRequest", cond=doswitch() )
 				}	 
-				state("work") { //this:State
+				state("waitRequest") { //this:State
 					action { //it:State
+						 CommUtils.waitTheUser("$name wait request .... Please HIT ")  
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
-					 transition(edgeName="t00",targetState="doObserve",cond=whenDispatch("coapUpdate"))
+					 transition( edgeName="goto",targetState="handleRequest", cond=doswitch() )
 				}	 
-				state("doObserve") { //this:State
+				state("handleRequest") { //this:State
 					action { //it:State
-						CommUtils.outmagenta("$name in ${currentState.stateName} | $currentMsg | ${Thread.currentThread().getName()} n=${Thread.activeCount()}")
+						CommUtils.outblue("serviceaccessgui handle request")
+						request("ticket", "ticket(100)" ,"coldstorageservice" )  
+						//genTimer( actor, state )
+					}
+					//After Lenzi Aug2002
+					sysaction { //it:State
+					}	 	 
+					 transition(edgeName="t00",targetState="requestAccepted",cond=whenReply("ticketdone"))
+					transition(edgeName="t01",targetState="requestRefused",cond=whenReply("ticketfailed"))
+				}	 
+				state("requestRefused") { //this:State
+					action { //it:State
+						CommUtils.outblue("$name in ${currentState.stateName} | $currentMsg | ${Thread.currentThread().getName()} n=${Thread.activeCount()}")
 						 	   
-						if( checkMsgContent( Term.createTerm("coapUpdate(SOURCE,ARG)"), Term.createTerm("coapUpdate(basicrobot,ARG)"), 
+						if( checkMsgContent( Term.createTerm("ticketfailed(_)"), Term.createTerm("ticketfailed(KG)"), 
 						                        currentMsg.msgContent()) ) { //set msgArgList
-								CommUtils.outyellow("$name - from basicrobot: ${payloadArg(1)}")
+								CommUtils.outblue("not enough space in the cold room ...")
 						}
-						if( checkMsgContent( Term.createTerm("coapUpdate(SOURCE,ARG)"), Term.createTerm("coapUpdate(transporttrolley,ARG)"), 
+						if( checkMsgContent( Term.createTerm("ticketnotok(TIME)"), Term.createTerm("ticketnotok(_)"), 
 						                        currentMsg.msgContent()) ) { //set msgArgList
-								CommUtils.outyellow("$name - from transporttrolley: ${payloadArg(1)}")
+								CommUtils.outblue("too much time passed ...")
 						}
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
-					 transition( edgeName="goto",targetState="work", cond=doswitch() )
+					 transition( edgeName="goto",targetState="waitRequest", cond=doswitch() )
+				}	 
+				state("requestAccepted") { //this:State
+					action { //it:State
+						CommUtils.outblue("serviceaccessgui request accepted. going to the indoor port next")
+						if( checkMsgContent( Term.createTerm("ticketdone(CODE,TICKETTIME)"), Term.createTerm("ticketdone(CODE,TICKETTIME)"), 
+						                        currentMsg.msgContent()) ) { //set msgArgList
+								 
+												val Code = payloadArg(0)
+												val TicketTime = payloadArg(1) 
+												CommUtils.outblue("code: ${Code}, time for unloading: ${TicketTime} "); 
+								request("validateticket", "validateticket($Code,$TicketTime)" ,"coldstorageservice" )  
+						}
+						//genTimer( actor, state )
+					}
+					//After Lenzi Aug2002
+					sysaction { //it:State
+					}	 	 
+					 transition(edgeName="t02",targetState="unloading",cond=whenReply("ticketok"))
+					transition(edgeName="t03",targetState="requestRefused",cond=whenReply("ticketnotok"))
+				}	 
+				state("unloading") { //this:State
+					action { //it:State
+						if( checkMsgContent( Term.createTerm("ticketok(TIME)"), Term.createTerm("ticketok(TIME)"), 
+						                        currentMsg.msgContent()) ) { //set msgArgList
+								CommUtils.outblue("charge taken. leave the INDOOR area ... ")
+						}
+						//genTimer( actor, state )
+					}
+					//After Lenzi Aug2002
+					sysaction { //it:State
+					}	 	 
+					 transition(edgeName="t04",targetState="waitRequest",cond=whenDispatch("chargeTaken"))
 				}	 
 			}
 		}

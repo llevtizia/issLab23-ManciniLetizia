@@ -22,45 +22,53 @@ class Transporttrolley ( name: String, scope: CoroutineScope  ) : ActorBasicFsm(
 				state("s0") { //this:State
 					action { //it:State
 						CommUtils.outyellow("$name START, engage basicrobot ")
-						request("engage", "engage(transporttrolley,330)" ,"basicrobot" )  
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
-					 transition(edgeName="t01",targetState="waitCmd",cond=whenReply("engagedone"))
+					 transition( edgeName="goto",targetState="waitCmd", cond=doswitch() )
 				}	 
 				state("waitCmd") { //this:State
 					action { //it:State
-						CommUtils.outgreen("$name | waiting for commands ...	")
+						CommUtils.outyellow("$name | waiting for commands ...	")
 						updateResourceRep( "$name(waiting) "  
 						)
-						 CommUtils.waitTheUser("$name wait cmd. Please HIT ")  
-						forward("gomoveToIndoor", "gomoveToIndoor(26)" ,"transporttrolley" ) 
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
-					 transition(edgeName="t02",targetState="moveToIndoor",cond=whenDispatch("gomoveToIndoor"))
+					 transition(edgeName="t06",targetState="moveToIndoor",cond=whenRequest("gomoveToIndoor"))
 				}	 
 				state("moveToIndoor") { //this:State
 					action { //it:State
-						CommUtils.outgreen("$name moveToIndoor ")
+						CommUtils.outyellow("$name moveToIndoor ")
 						request("moverobot", "moverobot(0,4)" ,"basicrobot" )  
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
-					 transition(edgeName="t03",targetState="loadTheCharge",cond=whenReply("moverobotdone"))
+					 transition(edgeName="t07",targetState="loadTheCharge",cond=whenReply("moverobotdone"))
+					transition(edgeName="t08",targetState="failedMovement",cond=whenReply("moverobotfailed"))
+				}	 
+				state("failedMovement") { //this:State
+					action { //it:State
+						CommUtils.outyellow("robot not moving ")
+						//genTimer( actor, state )
+					}
+					//After Lenzi Aug2002
+					sysaction { //it:State
+					}	 	 
+					 transition( edgeName="goto",targetState="waitCmd", cond=doswitch() )
 				}	 
 				state("loadTheCharge") { //this:State
 					action { //it:State
 						updateResourceRep( "$name(loading) "  
 						)
-						CommUtils.outgreen("$name loading charge ... ")
-						 CommUtils.waitTheUser("$name loading charge. Please HIT ")  
+						CommUtils.outyellow("$name loading charge ... ")
+						forward("chargeTaken", "chargeTaken(_)" ,"coldstorageservice" ) 
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002
@@ -70,20 +78,22 @@ class Transporttrolley ( name: String, scope: CoroutineScope  ) : ActorBasicFsm(
 				}	 
 				state("moveToColdRoom") { //this:State
 					action { //it:State
-						CommUtils.outgreen("$name moveToColdRoom")
+						CommUtils.outyellow("$name moveToColdRoom")
 						request("moverobot", "moverobot(4,3)" ,"basicrobot" )  
+						delay(2000) 
 						//genTimer( actor, state )
 					}
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
-					 transition(edgeName="t04",targetState="storeTheCharge",cond=whenReply("moverobotdone"))
+					 transition(edgeName="t09",targetState="storeTheCharge",cond=whenReply("moverobotdone"))
 				}	 
 				state("storeTheCharge") { //this:State
 					action { //it:State
 						updateResourceRep( "$name(storing) "  
 						)
-						CommUtils.outgreen("$name storing charge ... ")
+						CommUtils.outyellow("$name storing charge ... ")
+						delay(2000) 
 						 CommUtils.waitTheUser("$name loading charge. Please HIT ")  
 						//genTimer( actor, state )
 					}
@@ -101,7 +111,7 @@ class Transporttrolley ( name: String, scope: CoroutineScope  ) : ActorBasicFsm(
 					//After Lenzi Aug2002
 					sysaction { //it:State
 					}	 	 
-					 transition(edgeName="t05",targetState="trolleyAtHome",cond=whenReply("moverobotdone"))
+					 transition(edgeName="t010",targetState="trolleyAtHome",cond=whenReply("moverobotdone"))
 				}	 
 				state("trolleyAtHome") { //this:State
 					action { //it:State
