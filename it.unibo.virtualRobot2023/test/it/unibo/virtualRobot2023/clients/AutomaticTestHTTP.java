@@ -10,10 +10,8 @@ import org.apache.http.util.EntityUtils;
 import org.json.simple.JSONObject;
 import org.json.simple.parser.JSONParser;
 import org.junit.Before;
-import org.junit.After;
 import org.junit.Test;
 import unibo.basicomm23.utils.CommUtils;
-
 import java.net.URI;
 
 public class AutomaticTestHTTP {
@@ -93,12 +91,6 @@ public class AutomaticTestHTTP {
         CommUtils.outmagenta("AutomaticTestHTTP INIT");
     }
 
-    @After
-    public void after(){
-        //httpclient = HttpClients.createDefault();
-        CommUtils.outmagenta("AutomaticTestHTTP END");
-    }
-
     @Test
     public void doForward() {
         CommUtils.outmagenta("doForward "  );
@@ -110,7 +102,6 @@ public class AutomaticTestHTTP {
         CommUtils.outblue("moveBackward result1=" + result1);
         assert( result1.get("move").toString().contains("moveBackward")) ;
     }
-
 
     @Test
     public void doHalt() {
@@ -126,4 +117,5 @@ public class AutomaticTestHTTP {
         assert( result1.get("move").toString().contains("moveBackward")) ;
 
     }
+
 }
